@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhinandan | Cybersecurity & Cloud Computing</title>
+    <title>ABHINANDAN | Computer Science & Engineering</title>
     <style>
         :root {
             --primary: #0f172a;
@@ -93,12 +93,26 @@
             color: var(--primary);
             font-size: 3rem;
             margin-bottom: 0.5rem;
+            text-transform: uppercase;
         }
 
         .subtitle {
             color: var(--text-light);
             font-size: 1.2rem;
             margin-bottom: 2rem;
+        }
+
+        /* Google Maps Link Style */
+        .map-link {
+            color: var(--text-light);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--text-light);
+            transition: color 0.3s, border-color 0.3s;
+        }
+
+        .map-link:hover {
+            color: var(--accent);
+            border-color: var(--accent);
         }
 
         section {
@@ -111,6 +125,12 @@
             padding-bottom: 0.5rem;
             margin-bottom: 1.5rem;
             display: inline-block;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
         }
 
         .card {
@@ -126,6 +146,12 @@
             color: var(--primary);
             margin-bottom: 0.5rem;
             font-size: 1.4rem;
+        }
+
+        .card-subtitle {
+            font-weight: 500;
+            color: var(--text-main);
+            margin-bottom: 0.2rem;
         }
 
         .card-date {
@@ -165,7 +191,6 @@
             margin-top: 4rem;
         }
 
-        /* Responsive Navbar for Mobile */
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
@@ -176,15 +201,19 @@
                 flex-wrap: wrap;
                 justify-content: center;
             }
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
 
     <nav class="navbar">
-        <a href="#" class="nav-logo">Abhinandan</a>
+        <a href="#" class="nav-logo">ABHINANDAN</a>
         <div class="nav-links">
             <a href="mailto:a23894843@gmail.com">Email</a>
+            <a href="tel:+919528998232">Phone</a>
             <a href="https://github.com/A23894843/" target="_blank">GitHub</a>
             <a href="https://www.linkedin.com/in/abhinandan-29b66b28b" target="_blank">LinkedIn</a>
             <a href="https://drive.google.com/file/d/1zB6I_aERl9bmupxGOFFe9VoQ6qEA6-i4/view?usp=drive_link" target="_blank" class="nav-btn">📄 Resume</a>
@@ -193,49 +222,106 @@
 
     <div class="container">
         <section class="hero">
-            <h1>Hi, I'm Abhinandan</h1>
-            <p class="subtitle">📍 Haridwar, India | B.Tech CSE | Cybersecurity & Cloud Computing</p>
-            <p>I am a Computer Science engineering student dedicated to building robust, secure systems. My focus lies at the intersection of network security and machine learning, developing intelligent solutions to detect and mitigate modern cyber threats. I am highly adaptable and continuously expanding my toolkit across cloud platforms and advanced programming architectures.</p>
+            <h1>ABHINANDAN</h1>
+            <p class="subtitle">📍 <a href="https://www.google.com/maps/search/?api=1&query=Alipur,+Ibrahimpur,+Bahadrabad,+Haridwar,+Uttarakhand" target="_blank" class="map-link">Alipur, Ibrahimpur, Bahadrabad, Haridwar, U.K.</a> | COMPUTER SCIENCE & ENGINEERING STUDENT</p>
+            <p>Motivated Computer Science student with strong foundation in Python, C++ and database management, seeking an opportunity to apply technical skills in real world projects and grow as a software engineer.</p>
+            <p style="margin-top: 1rem;"><strong>Strengths:</strong> Strong problem-solving ability, detail-oriented, quick learner, adaptable and team-friendly</p>
         </section>
 
         <section>
-            <h2>Technical Arsenal</h2>
+            <h2>Technical Skills & Tools</h2>
             <div class="tags">
                 <span class="tag">C++</span>
                 <span class="tag">Python</span>
-                <span class="tag">Cybersecurity</span>
-                <span class="tag">Network Security</span>
-                <span class="tag">IBM Cloud</span>
-                <span class="tag">Unsupervised Machine Learning</span>
-                <span class="tag">Log Analysis</span>
+                <span class="tag">SQL</span>
+                <span class="tag">Java</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">Numpy</span>
+                <span class="tag">Matplotlib</span>
+                <span class="tag">Github</span>
+                <span class="tag">VS Code</span>
+                <span class="tag">Jupyter Notebook</span>
+                <span class="tag">Google Colab Notebook</span>
+                <span class="tag">MySQL Workbench</span>
             </div>
         </section>
 
         <section>
-            <h2>Featured Projects</h2>
+            <h2>Internships</h2>
             
             <div class="card">
-                <h3>AI-Driven Intrusion Detection and Prevention System (IDPS)</h3>
-                <span class="card-date">March 2026 – Present</span>
-                <p>A custom security architecture designed to protect network infrastructures from advanced, evolving threats.</p>
-                <br>
+                <h3>Python Intern</h3>
+                <p class="card-subtitle">CodSoft</p>
+                <span class="card-date">1 August - 31 August, 2025</span>
                 <ul>
-                    <li>Developed core threat detection modules specifically targeting DDoS attacks and unauthorized port scanning.</li>
-                    <li>Integrated unsupervised machine learning algorithms to establish baseline network behavior and autonomously detect real-time anomalies.</li>
-                    <li>Engineered an automated log monitoring system paired with a rapid alert generation module to instantly notify administrators of security breaches.</li>
+                    <li>Created a Contact Management System to store and manage contacts using MySQL and Python GUI based with Tkinter library, implementing features like add, update, delete and search.</li>
+                    <li>Built a strong Password Generator tool on GUI-based to generate secure passwords using randomization and string handling techniques.</li>
+                    <li>Developed a simple Rock, Paper, Scissors game on GUI-based with user interaction, applyting logic building and control flow concepts.</li>
                 </ul>
-                <div class="tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">Machine Learning</span>
-                    <span class="tag">Network Security</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>Projects</h2>
+            
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Cyber Defensive Engine</h3>
+                    <br>
+                    <ul>
+                        <li>Built a real-time threat detection system using Python and C++.</li>
+                        <li>Implemented anomaly detection for suspicious activities.</li>
+                        <li>Designed a monitoring systems for system behavior.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Dr. Vaccine Antivirus</h3>
+                    <br>
+                    <ul>
+                        <li>Developed a basic antivirus system in Java.</li>
+                        <li>Implemented file scanning and pattern matching.</li>
+                        <li>Created a simple user interface for scanning operations.</li>
+                    </ul>
                 </div>
             </div>
+        </section>
 
+        <section>
+            <h2>Academic History & Certifications</h2>
+            
+            <div class="card">
+                <h3>Gurukul Kangri Vishwavidyalaya (Deemed to be University)</h3>
+                <p class="card-subtitle">Bachelor of Technology in Computer Science & Engineering</p>
+                <span class="card-date">2023 - Present</span>
+                <ul>
+                    <li>CGPA (Till now): 7.83</li>
+                </ul>
+                <br>
+                <h3>C.B.S.E. Board</h3>
+                <span class="card-date">2022</span>
+                <ul>
+                    <li>12th Grade Score: 67%</li>
+                    <li>10th Grade Score: 70%</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Certifications</h3>
+                <br>
+                <ul>
+                    <li>Python Internship - CodSoft</li>
+                    <li>AI & ML Workshop - Sofcon India Pvt. Ltd.</li>
+                    <li>Group Discussion on Technology and Innovation - NDLI Club</li>
+                    <li>Intelligent BMS: Leveraging AI for Accuracy, Safety and Sustainability - Mathworks</li>
+                </ul>
+            </div>
         </section>
 
         <footer>
-            <p>Always open to discussing cybersecurity innovations, cloud infrastructure, and new opportunities.</p>
-            <p>© 2026 Abhinandan. All rights reserved.</p>
+            <p>Phone: +91-95289-98232 | Email: a23894843@gmail.com</p>
+            <p>📍 <a href="https://www.google.com/maps/search/?api=1&query=Alipur,+Ibrahimpur,+Bahadrabad,+Haridwar,+Uttarakhand" target="_blank" class="map-link">Alipur, Ibrahimpur, Bahadrabad, Haridwar, U.K.</a></p>
+            <p>© 2026 ABHINANDAN. All rights reserved.</p>
         </footer>
     </div>
 
