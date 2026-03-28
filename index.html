@@ -1,327 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABHINANDAN | Computer Science & Engineering</title>
-    <style>
-        :root {
-            --primary: #0f172a;
-            --accent: #3b82f6;
-            --text-main: #334155;
-            --text-light: #64748b;
-            --bg-color: #f8fafc;
-            --card-bg: #ffffff;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', system-ui, sans-serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abhinandan | Portfolio</title>
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
+<style>
+:root {
+    --bg: #f8fafc;
+    --text: #0f172a;
+    --card: #ffffff;
+    --accent: #3b82f6;
+}
 
-        /* --- NAVBAR STYLES --- */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 5%;
-            background-color: var(--card-bg);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+body.dark {
+    --bg: #0f172a;
+    --text: #f1f5f9;
+    --card: #1e293b;
+}
 
-        .nav-logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary);
-            text-decoration: none;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+    transition: 0.3s;
+}
 
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
+body {
+    background: var(--bg);
+    color: var(--text);
+}
 
-        .nav-links a {
-            color: var(--text-main);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 5%;
+    background: var(--card);
+    position: sticky;
+    top: 0;
+}
 
-        .nav-links a:hover {
-            color: var(--accent);
-        }
+.nav-links a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: var(--text);
+}
 
-        .nav-btn {
-            background-color: var(--accent);
-            color: white !important;
-            padding: 0.6rem 1.2rem;
-            border-radius: 6px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
+.toggle {
+    cursor: pointer;
+    font-size: 18px;
+}
 
-        .nav-btn:hover {
-            background-color: #2563eb;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
-        }
+/* HERO */
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
+h1 {
+    font-size: 3rem;
+}
 
-        .hero {
-            padding: 4rem 0 2rem;
-        }
+.typing {
+    color: var(--accent);
+    font-weight: bold;
+}
 
-        h1 {
-            color: var(--primary);
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-        }
+/* CARD */
+.card {
+    background: var(--card);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+}
 
-        .subtitle {
-            color: var(--text-light);
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
+/* SHOW ANIMATION */
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
 
-        .map-link {
-            color: var(--text-light);
-            text-decoration: none;
-            border-bottom: 1px dashed var(--text-light);
-            transition: color 0.3s, border-color 0.3s;
-        }
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
 
-        .map-link:hover {
-            color: var(--accent);
-            border-color: var(--accent);
-        }
+/* TAG */
+.tag {
+    display: inline-block;
+    padding: 5px 10px;
+    background: #3b82f620;
+    margin: 5px;
+    border-radius: 20px;
+}
 
-        section {
-            margin: 3rem 0;
-        }
-
-        h2 {
-            color: var(--primary);
-            border-bottom: 2px solid var(--accent);
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
-            display: inline-block;
-        }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        .card {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            margin-bottom: 1.5rem;
-            border-left: 4px solid var(--accent);
-        }
-
-        .card h3 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            font-size: 1.4rem;
-        }
-
-        .card-subtitle {
-            font-weight: 500;
-            color: var(--text-main);
-            margin-bottom: 0.2rem;
-        }
-
-        .card-date {
-            color: var(--accent);
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .tags {
-            margin-top: 1rem;
-        }
-
-        .tag {
-            display: inline-block;
-            background: #e2e8f0;
-            color: var(--primary);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        ul {
-            margin-left: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem 0;
-            color: var(--text-light);
-            border-top: 1px solid #e2e8f0;
-            margin-top: 4rem;
-        }
-
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                gap: 1rem;
-                padding: 1rem;
-            }
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .grid-2 {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+@media(max-width:768px){
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
 </head>
+
 <body>
 
-    <nav class="navbar">
-        [span_1](start_span)<a href="#" class="nav-logo">ABHINANDAN[span_1](end_span)</a>
-        <div class="nav-links">
-            <a href="mailto:a23894843@gmail.com">Email</a>
-            <a href="tel:+919528998232">Phone</a>
-            <a href="https://github.com/A23894843/" target="_blank">GitHub</a>
-            <a href="https://www.linkedin.com/in/abhinandan-29b66b28b" target="_blank">LinkedIn</a>
-            <a href="https://drive.google.com/file/d/1zB6I_aERl9bmupxGOFFe9VoQ6qEA6-i4/view?usp=drive_link" target="_blank" class="nav-btn">📄 Resume</a>
-        </div>
-    </nav>
-
-    <div class="container">
-        <section class="hero">
-            [span_2](start_span)<h1>ABHINANDAN[span_2](end_span)</h1>
-            [span_3](start_span)<p class="subtitle">📍 <a href="https://www.google.com/maps/search/?api=1&query=Alipur,+Ibrahimpur,+Bahadrabad,+Haridwar,+Uttarakhand" target="_blank" class="map-link">Alipur, Ibrahimpur, Bahadrabad, Haridwar, U.K.[span_3](end_span)</a> | [span_4](start_span)COMPUTER SCIENCE & ENGINEERING STUDENT[span_4](end_span)</p>
-            [span_5](start_span)<p>Motivated Computer Science student with strong foundation in Python, C++ and database management, seeking an opportunity to apply technical skills in real world projects and grow as a software engineer.[span_5](end_span)</p>
-            [span_6](start_span)<p style="margin-top: 1rem;"><strong>Strengths:</strong> Strong problem-solving ability, detail-oriented, quick learner, adaptable and team-friendly[span_6](end_span)</p>
-        </section>
-
-        <section>
-            <h2>Technical Skills & Tools</h2>
-            <div class="tags">
-                [span_7](start_span)<span class="tag">C++[span_7](end_span)</span>
-                [span_8](start_span)<span class="tag">Python[span_8](end_span)</span>
-                [span_9](start_span)<span class="tag">SQL[span_9](end_span)</span>
-                [span_10](start_span)<span class="tag">Java[span_10](end_span)</span>
-                [span_11](start_span)<span class="tag">MySQL[span_11](end_span)</span>
-                [span_12](start_span)<span class="tag">Numpy[span_12](end_span)</span>
-                [span_13](start_span)<span class="tag">Matplotlib[span_13](end_span)</span>
-                [span_14](start_span)<span class="tag">Github[span_14](end_span)</span>
-                [span_15](start_span)<span class="tag">VS Code[span_15](end_span)</span>
-                [span_16](start_span)<span class="tag">Jupyter Notebook[span_16](end_span)</span>
-                [span_17](start_span)<span class="tag">Google Colab Notebook[span_17](end_span)</span>
-                [span_18](start_span)<span class="tag">MySQL Workbench[span_18](end_span)</span>
-            </div>
-        </section>
-
-        <section>
-            <h2>Internships</h2>
-            
-            <div class="card">
-                [span_19](start_span)<h3>Python Intern[span_19](end_span)</h3>
-                [span_20](start_span)<p class="card-subtitle">CodSoft[span_20](end_span)</p>
-                [span_21](start_span)<span class="card-date">1 August - 31 August, 2025[span_21](end_span)</span>
-                <ul>
-                    [span_22](start_span)<li>Created a Contact Management System to store and manage contacts using MySQL and Python GUI based with Tkinter library, implementing features like add, update, delete and search.[span_22](end_span)</li>
-                    [span_23](start_span)<li>Built a strong Password Generator tool on GUI-based to generate secure passwords using randomization and string handling techniques.[span_23](end_span)</li>
-                    [span_24](start_span)<li>Developed a simple Rock, Paper, Scissors game on GUI-based with user interaction, applyting logic building and control flow concepts.[span_24](end_span)</li>
-                </ul>
-            </div>
-        </section>
-
-        <section>
-            <h2>Projects</h2>
-            
-            <div class="grid-2">
-                <div class="card">
-                    [span_25](start_span)<h3>Cyber Defensive Engine[span_25](end_span)</h3>
-                    <br>
-                    <ul>
-                        [span_26](start_span)<li>Built a real-time threat detection system using Python and C++.[span_26](end_span)</li>
-                        [span_27](start_span)<li>Implemented anomaly detection for suspicious activities.[span_27](end_span)</li>
-                        [span_28](start_span)<li>Designed a monitoring systems for system behavior.[span_28](end_span)</li>
-                    </ul>
-                </div>
-
-                <div class="card">
-                    <h3>Dr. [span_29](start_span)Vaccine Antivirus[span_29](end_span)</h3>
-                    <br>
-                    <ul>
-                        [span_30](start_span)<li>Developed a basic antivirus system in Java.[span_30](end_span)</li>
-                        [span_31](start_span)<li>Implemented file scanning and pattern matching.[span_31](end_span)</li>
-                        [span_32](start_span)<li>Created a simple user interface for scanning operations.[span_32](end_span)</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Academic History & Certifications</h2>
-            
-            <div class="card">
-                [span_33](start_span)<h3>Gurukul Kangri Vishwavidyalaya (Deemed to be University)[span_33](end_span)</h3>
-                [span_34](start_span)<p class="card-subtitle">Bachelor of Technology in Computer Science & Engineering[span_34](end_span)</p>
-                [span_35](start_span)<span class="card-date">2023-Present[span_35](end_span)</span>
-                <ul>
-                    [span_36](start_span)<li>CGPA (Till now): 7.83[span_36](end_span)</li>
-                </ul>
-                <br>
-                <h3>C.B.S.E. [span_37](start_span)Board[span_37](end_span)</h3>
-                <ul>
-                    <li>12th Grade | [span_38](start_span)2022[span_38](end_span) - [span_39](start_span)Score: 67%[span_39](end_span)</li>
-                    <li>10th Grade | [span_40](start_span)2020[span_40](end_span) - [span_41](start_span)Score: 70%[span_41](end_span)</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h3>Certifications</h3>
-                <br>
-                <ul>
-                    [span_42](start_span)<li>Python Internship - CodSoft[span_42](end_span)</li>
-                    <li>AI & ML Workshop - Sofcon India Pvt. [span_43](start_span)Ltd.[span_43](end_span)</li>
-                    [span_44](start_span)<li>Group Discussion on Technology and Innovation - NDLI Club[span_44](end_span)</li>
-                    [span_45](start_span)<li>Intelligent BMS: Leveraging Al for Accuracy, Safety and Sustainability - Mathworks[span_45](end_span)</li>
-                </ul>
-            </div>
-        </section>
-
-        <footer>
-            [span_46](start_span)<p>Phone: +91-95289-98232[span_46](end_span) | [span_47](start_span)Email: a23894843@gmail.com[span_47](end_span) | [span_48](start_span)Portfolio: my-portfolio-abhinandan.vercel.app[span_48](end_span)</p>
-            [span_49](start_span)<p>📍 <a href="https://www.google.com/maps/search/?api=1&query=Alipur,+Ibrahimpur,+Bahadrabad,+Haridwar,+Uttarakhand" target="_blank" class="map-link">Alipur, Ibrahimpur, Bahadrabad, Haridwar, U.K.[span_49](end_span)</a></p>
-            <p>© 2026 ABHINANDAN. All rights reserved.</p>
-        </footer>
+<nav class="navbar">
+    <h2>ABHINANDAN</h2>
+    <div>
+        <span class="toggle" onclick="toggleDark()">🌙</span>
     </div>
+</nav>
+
+<div class="container">
+
+<h1>Hi, I'm Abhinandan 👋</h1>
+<p class="typing" id="typing"></p>
+
+<section class="card">
+    <h2>About Me</h2>
+    <p>
+        Computer Science student passionate about development, cybersecurity,
+        and building real-world projects.
+    </p>
+</section>
+
+<section class="card">
+    <h2>Skills</h2>
+    <span class="tag">Python</span>
+    <span class="tag">C++</span>
+    <span class="tag">SQL</span>
+    <span class="tag">Java</span>
+</section>
+
+<section class="grid">
+    <div class="card">
+        <h3>Cyber Defensive Engine</h3>
+        <p>Real-time threat detection system</p>
+    </div>
+
+    <div class="card">
+        <h3>Vaccine Antivirus</h3>
+        <p>Java-based antivirus system</p>
+    </div>
+</section>
+
+</div>
+
+<script>
+
+/* DARK MODE */
+function toggleDark() {
+    document.body.classList.toggle("dark");
+}
+
+/* TYPING EFFECT */
+const text = ["Software Developer", "Cybersecurity Enthusiast", "Problem Solver"];
+let i = 0, j = 0;
+let currentText = "";
+let isDeleting = false;
+
+function type() {
+    currentText = text[i];
+    
+    if (!isDeleting) {
+        document.getElementById("typing").innerHTML = currentText.substring(0, j++);
+        if (j > currentText.length) {
+            isDeleting = true;
+            setTimeout(type, 1000);
+            return;
+        }
+    } else {
+        document.getElementById("typing").innerHTML = currentText.substring(0, j--);
+        if (j < 0) {
+            isDeleting = false;
+            i = (i + 1) % text.length;
+        }
+    }
+
+    setTimeout(type, isDeleting ? 50 : 100);
+}
+
+type();
+
+/* SCROLL ANIMATION */
+const cards = document.querySelectorAll(".card");
+
+window.addEventListener("scroll", () => {
+    cards.forEach(card => {
+        const top = card.getBoundingClientRect().top;
+        if (top < window.innerHeight - 50) {
+            card.classList.add("show");
+        }
+    });
+});
+
+</script>
 
 </body>
 </html>
