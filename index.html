@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | B.Tech CSE & Cybersecurity</title>
+    <title>Abhinandan | Cybersecurity & Cloud Computing</title>
     <style>
         :root {
             --primary: #0f172a;
@@ -27,20 +27,71 @@
             line-height: 1.6;
         }
 
+        /* --- NAVBAR STYLES --- */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-btn {
+            background-color: var(--accent);
+            color: white !important;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background-color: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
         .container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 2rem;
         }
 
-        header {
-            text-align: center;
+        .hero {
             padding: 4rem 0 2rem;
         }
 
         h1 {
             color: var(--primary);
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 0.5rem;
         }
 
@@ -48,34 +99,6 @@
             color: var(--text-light);
             font-size: 1.2rem;
             margin-bottom: 2rem;
-        }
-
-        .links a {
-            color: var(--primary);
-            text-decoration: none;
-            margin: 0 10px;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .links a:hover {
-            color: var(--accent);
-        }
-
-        .resume-btn {
-            display: inline-block;
-            background-color: var(--accent);
-            color: white !important;
-            padding: 0.8rem 1.5rem;
-            border-radius: 5px;
-            margin-top: 1.5rem;
-            font-weight: bold;
-            box-shadow: 0 4px 6px rgba(59, 130, 246, 0.2);
-        }
-
-        .resume-btn:hover {
-            background-color: #2563eb;
-            transform: translateY(-2px);
         }
 
         section {
@@ -92,7 +115,7 @@
 
         .card {
             background: var(--card-bg);
-            padding: 1.5rem;
+            padding: 2rem;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             margin-bottom: 1.5rem;
@@ -102,10 +125,12 @@
         .card h3 {
             color: var(--primary);
             margin-bottom: 0.5rem;
+            font-size: 1.4rem;
         }
 
         .card-date {
-            color: var(--text-light);
+            color: var(--accent);
+            font-weight: 600;
             font-size: 0.9rem;
             margin-bottom: 1rem;
             display: block;
@@ -119,16 +144,17 @@
             display: inline-block;
             background: #e2e8f0;
             color: var(--primary);
-            padding: 0.2rem 0.8rem;
-            border-radius: 15px;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
             font-size: 0.85rem;
             margin-right: 0.5rem;
             margin-bottom: 0.5rem;
+            font-weight: 500;
         }
 
         ul {
             margin-left: 1.5rem;
-            color: var(--text-main);
+            margin-bottom: 1rem;
         }
 
         footer {
@@ -138,31 +164,42 @@
             border-top: 1px solid #e2e8f0;
             margin-top: 4rem;
         }
+
+        /* Responsive Navbar for Mobile */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <h1>[Your Name]</h1>
-            <p class="subtitle">B.Tech CSE | Cybersecurity & Cloud Computing</p>
-            <div class="links">
-                <a href="mailto:your.email@example.com">Email</a> • 
-                <a href="https://github.com/yourusername" target="_blank">GitHub</a> • 
-                <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
-            </div>
-            <a href="INSERT_YOUR_GOOGLE_DRIVE_OR_HOSTED_PDF_LINK_HERE" target="_blank" class="resume-btn">
-                📄 View My Updated Resume
-            </a>
-        </header>
+    <nav class="navbar">
+        <a href="#" class="nav-logo">Abhinandan</a>
+        <div class="nav-links">
+            <a href="mailto:a23894843@gmail.com">Email</a>
+            <a href="https://github.com/A23894843/" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/abhinandan-29b66b28b" target="_blank">LinkedIn</a>
+            <a href="https://drive.google.com/file/d/1zB6I_aERl9bmupxGOFFe9VoQ6qEA6-i4/view?usp=drive_link" target="_blank" class="nav-btn">📄 Resume</a>
+        </div>
+    </nav>
 
-        <section>
-            <h2>About Me</h2>
+    <div class="container">
+        <section class="hero">
+            <h1>Hi, I'm Abhinandan</h1>
+            <p class="subtitle">📍 Haridwar, India | B.Tech CSE | Cybersecurity & Cloud Computing</p>
             <p>I am a Computer Science engineering student dedicated to building robust, secure systems. My focus lies at the intersection of network security and machine learning, developing intelligent solutions to detect and mitigate modern cyber threats. I am highly adaptable and continuously expanding my toolkit across cloud platforms and advanced programming architectures.</p>
         </section>
 
         <section>
-            <h2>Technical Skills</h2>
+            <h2>Technical Arsenal</h2>
             <div class="tags">
                 <span class="tag">C++</span>
                 <span class="tag">Python</span>
@@ -194,11 +231,11 @@
                 </div>
             </div>
 
-            </section>
+        </section>
 
         <footer>
-            <p>Open to opportunities in Cybersecurity and Cloud Innovations.</p>
-            <p>© 2026 [Your Name]. All rights reserved.</p>
+            <p>Always open to discussing cybersecurity innovations, cloud infrastructure, and new opportunities.</p>
+            <p>© 2026 Abhinandan. All rights reserved.</p>
         </footer>
     </div>
 
