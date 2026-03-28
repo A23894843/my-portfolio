@@ -1,207 +1,432 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Abhinandan | Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhinandan | Software Engineer & Cybersecurity</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #0b1120;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+            --accent-hover: #0284c7;
+            --border-color: #334155;
+        }
 
-<style>
-:root {
-    --bg: #f8fafc;
-    --text: #0f172a;
-    --card: #ffffff;
-    --accent: #3b82f6;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
 
-body.dark {
-    --bg: #0f172a;
-    --text: #f1f5f9;
-    --card: #1e293b;
-}
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
-    transition: 0.3s;
-}
+        ::selection {
+            background: var(--accent);
+            color: #fff;
+        }
 
-body {
-    background: var(--bg);
-    color: var(--text);
-}
+        /* --- NAVBAR --- */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 5%;
+            background-color: rgba(11, 17, 32, 0.85);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
 
-/* NAVBAR */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 5%;
-    background: var(--card);
-    position: sticky;
-    top: 0;
-}
+        .nav-logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-main);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
 
-.nav-links a {
-    margin-left: 15px;
-    text-decoration: none;
-    color: var(--text);
-}
+        .nav-logo span {
+            color: var(--accent);
+        }
 
-.toggle {
-    cursor: pointer;
-    font-size: 18px;
-}
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
 
-/* HERO */
-.container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 20px;
-}
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
 
-h1 {
-    font-size: 3rem;
-}
+        .nav-links a:hover {
+            color: var(--accent);
+        }
 
-.typing {
-    color: var(--accent);
-    font-weight: bold;
-}
+        .nav-btn {
+            background-color: var(--accent);
+            color: #000 !important;
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
 
-/* CARD */
-.card {
-    background: var(--card);
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 20px;
-    opacity: 0;
-    transform: translateY(20px);
-}
+        .nav-btn:hover {
+            background-color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+        }
 
-/* SHOW ANIMATION */
-.show {
-    opacity: 1;
-    transform: translateY(0);
-}
+        /* --- LAYOUT --- */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
 
-/* GRID */
-.grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
+        section {
+            margin-bottom: 5rem;
+            animation: fadeIn 1s ease-in-out;
+        }
 
-/* TAG */
-.tag {
-    display: inline-block;
-    padding: 5px 10px;
-    background: #3b82f620;
-    margin: 5px;
-    border-radius: 20px;
-}
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-@media(max-width:768px){
-    .grid {
-        grid-template-columns: 1fr;
-    }
-}
-</style>
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-text {
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .location-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--text-muted);
+            transition: all 0.3s ease;
+        }
+
+        .location-link:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        /* --- TYPOGRAPHY & COMPONENTS --- */
+        h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+        }
+
+        h2::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--border-color);
+            margin-left: 1.5rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            color: var(--text-main);
+            margin-bottom: 0.3rem;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .card-meta span.date {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .card ul {
+            list-style-position: inside;
+            color: var(--text-muted);
+        }
+
+        .card ul li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.5rem;
+            list-style-type: none;
+        }
+
+        .card ul li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* --- TAGS --- */
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .tag {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+            padding: 0.4rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            background: var(--accent);
+            color: #000;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-<nav class="navbar">
-    <h2>ABHINANDAN</h2>
-    <div>
-        <span class="toggle" onclick="toggleDark()">🌙</span>
-    </div>
-</nav>
+    <nav class="navbar">
+        <a href="#" class="nav-logo">ABHINANDAN<span>.</span></a>
+        <div class="nav-links">
+            <a href="mailto:a23894843@gmail.com">Email</a>
+            <a href="tel:+919528998232">Phone</a>
+            <a href="https://github.com/A23894843/" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/abhinandan-29b66b28b" target="_blank">LinkedIn</a>
+            <a href="https://drive.google.com/file/d/1zB6I_aERl9bmupxGOFFe9VoQ6qEA6-i4/view?usp=drive_link" target="_blank" class="nav-btn">Resume</a>
+        </div>
+    </nav>
 
-<div class="container">
+    <main class="container">
+        
+        <section class="hero">
+            <h1>ABHINANDAN</h1>
+            <p class="subtitle">Computer Science & Engineering Student</p>
+            <p>Motivated Computer Science student with a strong foundation in Python, C++, and database management. I am seeking an opportunity to apply my technical skills to real-world projects and grow as a software engineer.</p>
+            <p style="margin-top: 1rem;">
+                <span class="highlight-text">Strengths:</span> Strong problem-solving ability, detail-oriented, quick learner, adaptable, and team-friendly.
+            </p>
+            <p style="margin-top: 1rem; font-size: 0.95rem;">
+                📍 <a href="https://www.google.com/maps/search/?api=1&query=Alipur,+Ibrahimpur,+Bahadrabad,+Haridwar,+Uttarakhand" target="_blank" class="location-link">Alipur, Ibrahimpur, Bahadrabad, Haridwar, U.K.</a>
+            </p>
+        </section>
 
-<h1>Hi, I'm Abhinandan 👋</h1>
-<p class="typing" id="typing"></p>
+        <section>
+            <h2>Technical Arsenal</h2>
+            <div class="tags-container">
+                <span class="tag">C++</span>
+                <span class="tag">Python</span>
+                <span class="tag">Java</span>
+                <span class="tag">SQL</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">NumPy</span>
+                <span class="tag">Matplotlib</span>
+                <span class="tag">GitHub</span>
+                <span class="tag">VS Code</span>
+                <span class="tag">Jupyter Notebook</span>
+                <span class="tag">Google Colab</span>
+            </div>
+        </section>
 
-<section class="card">
-    <h2>About Me</h2>
-    <p>
-        Computer Science student passionate about development, cybersecurity,
-        and building real-world projects.
-    </p>
-</section>
+        <section>
+            <h2>Experience</h2>
+            <div class="card">
+                <h3>Python Intern</h3>
+                <div class="card-meta">
+                    <span>CodSoft</span>
+                    <span class="date">August 2025</span>
+                </div>
+                <ul>
+                    <li>Created a Contact Management System to store and manage contacts using MySQL and a Python GUI (Tkinter library), implementing add, update, delete, and search features.</li>
+                    <li>Built a robust Password Generator tool with a GUI to generate secure passwords using randomization and string handling techniques.</li>
+                    <li>Developed a simple Rock, Paper, Scissors game with GUI-based user interaction, applying logic building and control flow concepts.</li>
+                </ul>
+            </div>
+        </section>
 
-<section class="card">
-    <h2>Skills</h2>
-    <span class="tag">Python</span>
-    <span class="tag">C++</span>
-    <span class="tag">SQL</span>
-    <span class="tag">Java</span>
-</section>
+        <section>
+            <h2>Projects</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Cyber Defensive Engine</h3>
+                    <div class="card-meta">
+                        <span>Python & C++</span>
+                    </div>
+                    <ul>
+                        <li>Built a real-time threat detection system using Python and C++.</li>
+                        <li>Implemented anomaly detection algorithms for identifying suspicious network activities.</li>
+                        <li>Designed comprehensive monitoring systems for analyzing system behavior.</li>
+                    </ul>
+                </div>
 
-<section class="grid">
-    <div class="card">
-        <h3>Cyber Defensive Engine</h3>
-        <p>Real-time threat detection system</p>
-    </div>
+                <div class="card">
+                    <h3>Dr. Vaccine Antivirus</h3>
+                    <div class="card-meta">
+                        <span>Java</span>
+                    </div>
+                    <ul>
+                        <li>Developed a fundamental antivirus architecture in Java.</li>
+                        <li>Implemented file scanning functionality and pattern matching algorithms.</li>
+                        <li>Created a streamlined user interface to manage and execute scanning operations.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-    <div class="card">
-        <h3>Vaccine Antivirus</h3>
-        <p>Java-based antivirus system</p>
-    </div>
-</section>
+        <section>
+            <h2>Academic History & Certifications</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Education</h3>
+                    <br>
+                    <p class="highlight-text">Gurukul Kangri Vishwavidyalaya</p>
+                    <p style="color: var(--text-muted); margin-bottom: 1rem; font-size: 0.9rem;">B.Tech in Computer Science & Engineering | 2023 - Present</p>
+                    <ul>
+                        <li>CGPA (Till now): 7.83</li>
+                    </ul>
+                    <br>
+                    <p class="highlight-text">C.B.S.E. Board</p>
+                    <p style="color: var(--text-muted); margin-bottom: 1rem; font-size: 0.9rem;">Secondary & Higher Secondary</p>
+                    <ul>
+                        <li>12th Grade (2022) - Score: 67%</li>
+                        <li>10th Grade (2020) - Score: 70%</li>
+                    </ul>
+                </div>
 
-</div>
+                <div class="card">
+                    <h3>Certifications</h3>
+                    <br>
+                    <ul>
+                        <li><strong>Python Internship</strong> - CodSoft</li>
+                        <li><strong>AI & ML Workshop</strong> - Sofcon India Pvt. Ltd.</li>
+                        <li><strong>Group Discussion on Technology and Innovation</strong> - NDLI Club</li>
+                        <li><strong>Intelligent BMS: Leveraging AI for Accuracy, Safety and Sustainability</strong> - Mathworks</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-<script>
+    </main>
 
-/* DARK MODE */
-function toggleDark() {
-    document.body.classList.toggle("dark");
-}
-
-/* TYPING EFFECT */
-const text = ["Software Developer", "Cybersecurity Enthusiast", "Problem Solver"];
-let i = 0, j = 0;
-let currentText = "";
-let isDeleting = false;
-
-function type() {
-    currentText = text[i];
-    
-    if (!isDeleting) {
-        document.getElementById("typing").innerHTML = currentText.substring(0, j++);
-        if (j > currentText.length) {
-            isDeleting = true;
-            setTimeout(type, 1000);
-            return;
-        }
-    } else {
-        document.getElementById("typing").innerHTML = currentText.substring(0, j--);
-        if (j < 0) {
-            isDeleting = false;
-            i = (i + 1) % text.length;
-        }
-    }
-
-    setTimeout(type, isDeleting ? 50 : 100);
-}
-
-type();
-
-/* SCROLL ANIMATION */
-const cards = document.querySelectorAll(".card");
-
-window.addEventListener("scroll", () => {
-    cards.forEach(card => {
-        const top = card.getBoundingClientRect().top;
-        if (top < window.innerHeight - 50) {
-            card.classList.add("show");
-        }
-    });
-});
-
-</script>
+    <footer>
+        <p>Email: <a href="mailto:a23894843@gmail.com">a23894843@gmail.com</a> | Phone: <a href="tel:+919528998232">+91-95289-98232</a></p>
+        <p>📍 <a href="https://www.google.com/maps/search/?api=1&query=Alipur,+Ibrahimpur,+Bahadrabad,+Haridwar,+Uttarakhand" target="_blank" class="location-link">Alipur, Ibrahimpur, Bahadrabad, Haridwar, U.K.</a></p>
+        <p style="margin-top: 1rem; color: #334155;">© 2026 ABHINANDAN. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
