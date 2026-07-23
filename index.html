@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
+<!-- saved from url=(0043)https://my-portfolio-abhinandan.vercel.app/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Abhinandan — Cybersecurity & Software Engineering</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>Abhinandan — Cybersecurity &amp; Software Engineering</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="./Abhinandan — Cybersecurity &amp; Software Engineering_files/css2" rel="stylesheet">
 <style>
   :root{
     --void:#05080d;
@@ -223,6 +223,23 @@
   .card a.cred-link{ color:var(--signal); text-decoration:underline; text-decoration-color:rgba(94,234,212,0.4); }
   .card a.cred-link:hover{ text-decoration-color:var(--signal); }
 
+  /* ---------- GITHUB CHART ---------- */
+  .github-chart-container{
+    overflow-x:auto;
+    padding:0.5rem 0;
+    display:flex;
+    justify-content:center;
+  }
+  .github-chart-img{
+    max-width:100%;
+    height:auto;
+    display:block;
+    transition:transform .3s ease;
+  }
+  .github-chart-img:hover{
+    transform:scale(1.01);
+  }
+
   /* ---------- FOOTER ---------- */
   footer{ text-align:center; padding:3.5rem 0 3rem; color:var(--dim); font-size:0.92rem; }
   footer .flinks{ display:flex; justify-content:center; gap:1.6rem; margin-bottom:1rem; flex-wrap:wrap; font-family:'JetBrains Mono', monospace; }
@@ -259,31 +276,31 @@
 </style>
 </head>
 <body>
-  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <canvas id="bg-canvas" aria-hidden="true" width="1920" height="912" style="width: 1536px; height: 730px;"></canvas>
 
-  <svg id="bg-circuit" aria-hidden="true" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+  <svg id="bg-circuit" aria-hidden="true" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" style="transform: translate3d(-2.5px, -4.38px, 0px);">
     <g>
-      <path class="trace" d="M80 140 H300 V220 H470 V120 H700 V240 H980 V170 H1210 V300 H1510"/>
-      <path class="trace" d="M120 420 H360 V350 H540 V520 H760 V430 H980 V590 H1240 V470 H1500"/>
-      <path class="trace" d="M70 760 H260 V680 H500 V820 H760 V700 H1020 V860 H1320 V740 H1540"/>
-      <path class="trace" d="M220 80 V250 H420 V390 H620 V300 H850 V450 H1110 V360 H1390 V520"/>
-      <path class="trace alert" d="M1380 90 H1160 V210 H920 V120 H690 V280 H420 V200 H150"/>
-      <path class="trace alert" d="M1460 860 H1220 V760 H940 V900 H700 V780 H430 V880 H160"/>
-      <path class="trace" d="M860 40 V180 H1040 V80 H1320 V210 H1500"/>
-      <path class="trace" d="M980 1000 V820 H1160 V920 H1420"/>
-      <circle class="node" cx="300" cy="140" r="4"/><circle class="node" cx="470" cy="220" r="4"/>
-      <circle class="node" cx="700" cy="240" r="4"/><circle class="node" cx="980" cy="170" r="4"/>
-      <circle class="node" cx="1210" cy="300" r="4"/><circle class="node" cx="540" cy="520" r="4"/>
-      <circle class="node" cx="980" cy="590" r="4"/><circle class="node" cx="260" cy="680" r="4"/>
-      <circle class="node" cx="760" cy="700" r="4"/><circle class="node" cx="1020" cy="860" r="4"/>
-      <circle class="node alert" cx="1160" cy="210" r="4"/><circle class="node alert" cx="690" cy="280" r="4"/>
-      <circle class="node alert" cx="940" cy="900" r="4"/><circle class="node alert" cx="430" cy="880" r="4"/>
+      <path class="trace" d="M80 140 H300 V220 H470 V120 H700 V240 H980 V170 H1210 V300 H1510"></path>
+      <path class="trace" d="M120 420 H360 V350 H540 V520 H760 V430 H980 V590 H1240 V470 H1500"></path>
+      <path class="trace" d="M70 760 H260 V680 H500 V820 H760 V700 H1020 V860 H1320 V740 H1540"></path>
+      <path class="trace" d="M220 80 V250 H420 V390 H620 V300 H850 V450 H1110 V360 H1390 V520"></path>
+      <path class="trace alert" d="M1380 90 H1160 V210 H920 V120 H690 V280 H420 V200 H150"></path>
+      <path class="trace alert" d="M1460 860 H1220 V760 H940 V900 H700 V780 H430 V880 H160"></path>
+      <path class="trace" d="M860 40 V180 H1040 V80 H1320 V210 H1500"></path>
+      <path class="trace" d="M980 1000 V820 H1160 V920 H1420"></path>
+      <circle class="node" cx="300" cy="140" r="4"></circle><circle class="node" cx="470" cy="220" r="4"></circle>
+      <circle class="node" cx="700" cy="240" r="4"></circle><circle class="node" cx="980" cy="170" r="4"></circle>
+      <circle class="node" cx="1210" cy="300" r="4"></circle><circle class="node" cx="540" cy="520" r="4"></circle>
+      <circle class="node" cx="980" cy="590" r="4"></circle><circle class="node" cx="260" cy="680" r="4"></circle>
+      <circle class="node" cx="760" cy="700" r="4"></circle><circle class="node" cx="1020" cy="860" r="4"></circle>
+      <circle class="node alert" cx="1160" cy="210" r="4"></circle><circle class="node alert" cx="690" cy="280" r="4"></circle>
+      <circle class="node alert" cx="940" cy="900" r="4"></circle><circle class="node alert" cx="430" cy="880" r="4"></circle>
     </g>
   </svg>
 
 
   <nav class="navbar">
-    <a href="#" class="nav-logo">ABHINANDAN<span class="blink">_</span></a>
+    <a href="https://my-portfolio-abhinandan.vercel.app/#" class="nav-logo">ABHINANDAN<span class="blink">_</span></a>
     <div class="nav-links">
       <a href="mailto:a23894843@gmail.com">Email</a>
       <a href="tel:+919528998232">Phone</a>
@@ -291,8 +308,8 @@
       <a href="https://www.linkedin.com/in/abhinandan-29b66b28b" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://drive.google.com/file/d/1F9vNLL18IpoJhXQqIfTwiu3u6dEPZfBH/view?usp=sharing" target="_blank" rel="noopener" class="nav-btn">Resume</a>
       <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark theme">
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
       </button>
     </div>
   </nav>
@@ -300,37 +317,37 @@
   <main class="container">
 
     <section class="hero">
-      <div class="radar" aria-hidden="true">
+      <div class="radar" aria-hidden="true" style="transform: translate(3.28952px, 4.8479px);">
         <svg viewBox="0 0 420 420">
           <defs>
-            <radialGradient id="sweepGrad" cx="0%" cy="0%" r="100%">
-              <stop offset="0%" stop-color="#5eead4" stop-opacity="0.45"/>
-              <stop offset="100%" stop-color="#5eead4" stop-opacity="0"/>
-            </radialGradient>
+            <radialgradient id="sweepGrad" cx="0%" cy="0%" r="100%">
+              <stop offset="0%" stop-color="#5eead4" stop-opacity="0.45"></stop>
+              <stop offset="100%" stop-color="#5eead4" stop-opacity="0"></stop>
+            </radialgradient>
           </defs>
-          <circle class="ring" cx="210" cy="210" r="60"/>
-          <circle class="ring" cx="210" cy="210" r="120"/>
-          <circle class="ring" cx="210" cy="210" r="180"/>
+          <circle class="ring" cx="210" cy="210" r="60"></circle>
+          <circle class="ring" cx="210" cy="210" r="120"></circle>
+          <circle class="ring" cx="210" cy="210" r="180"></circle>
           <g class="sweep-wrap">
-            <path class="sweep" d="M210,210 L210,30 A180,180 0 0,1 330,90 Z"/>
+            <path class="sweep" d="M210,210 L210,30 A180,180 0 0,1 330,90 Z"></path>
           </g>
-          <circle class="blip b1" cx="290" cy="150" r="3.5"/>
-          <circle class="blip b2" cx="150" cy="290" r="3.5"/>
-          <circle class="blip b3" cx="120" cy="140" r="3.5"/>
+          <circle class="blip b1" cx="290" cy="150" r="3.5"></circle>
+          <circle class="blip b2" cx="150" cy="290" r="3.5"></circle>
+          <circle class="blip b3" cx="120" cy="140" r="3.5"></circle>
         </svg>
       </div>
 
       <div class="hero-content">
         <span class="eyebrow">// whoami</span>
         <h1>ABHINANDAN<span class="cursor">_</span></h1>
-        <p class="typed-line mono" id="typedLine"></p>
-        <p class="lead">Computer Science &amp; Engineering student specializing in cybersecurity, with hands-on experience building a hybrid C++/Python real-time network defense engine using unsupervised machine learning for anomaly detection. Proficient in Python, C++, and MySQL. Certified in IBM SkillsBuild Cybersecurity Fundamentals.</p>
-        <p class="strengths"><span class="label">STRENGTHS</span>Strong problem-solving ability, detail-oriented, quick learner, adaptable, and team-friendly.</p>
-        <p>📍 <a href="https://www.google.com/maps/search/?api=1&query=Alipur,+Ibrahimpur,+Bahadrabad,+Haridwar,+Uttarakhand" target="_blank" rel="noopener" class="location-link">Alipur, Ibrahimpur, Bahadrabad, Haridwar, U.K.</a></p>
+        <p class="typed-line mono" id="typedLine">cybersecurity &amp; software engineering student<span class="type-cursor"></span></p>
+        <p class="lead">Computer Science &amp; Engineering student specializing in cybersecurity, with hands-on experience building a hybrid C++/Python real-time network defense engine using unsupervised machine learning for anomaly detection[cite: 1]. Proficient in Python, C++, and MySQL[cite: 1]. Certified in IBM SkillsBuild Cybersecurity Fundamentals[cite: 1].</p>
+        <p class="strengths"><span class="label">STRENGTHS</span>Strong problem-solving ability, detail-oriented, quick learner, adaptable, and team-friendly[cite: 1].</p>
+        <p>📍 <a href="https://www.google.com/maps/search/?api=1&amp;query=Alipur,+Ibrahimpur,+Bahadrabad,+Haridwar,+Uttarakhand" target="_blank" rel="noopener" class="location-link">Alipur, Ibrahimpur, Bahadrabad, Haridwar, U.K.[cite: 1]</a></p>
       </div>
     </section>
 
-    <section class="reveal" id="skills">
+    <section class="reveal visible" id="skills">
       <h2><span class="mono">// tech_stack</span></h2>
       <div class="tags-container">
         <span class="tag">C++</span>
@@ -348,7 +365,7 @@
       </div>
     </section>
 
-    <section class="reveal" id="security-domains">
+    <section class="reveal visible" id="security-domains">
       <h2><span class="mono">// security_domains</span></h2>
       <div class="tags-container">
         <span class="tag">Cryptography</span>
@@ -364,7 +381,7 @@
       </div>
     </section>
 
-    <section class="reveal" id="experience">
+    <section class="reveal visible" id="experience">
       <h2><span class="mono">// experience</span></h2>
       <div class="card">
         <h3>Python Intern</h3>
@@ -373,51 +390,70 @@
           <span class="date">Aug 2025</span>
         </div>
         <ul>
-          <li>Built a Contact Management System (Python/Tkinter GUI + MySQL) supporting add, update, delete, and search operations.</li>
-          <li>Developed a secure password generator using randomization and string-handling techniques.</li>
-          <li>Built a GUI-based Rock-Paper-Scissors game applying control-flow and logic-building concepts.</li>
+          <li>Built a Contact Management System (Python/Tkinter GUI + MySQL) supporting add, update, delete, and search operations[cite: 1].</li>
+          <li>Developed a secure password generator using randomization and string-handling techniques[cite: 1].</li>
+          <li>Built a GUI-based Rock-Paper-Scissors game applying control-flow and logic-building concepts[cite: 1].</li>
         </ul>
       </div>
     </section>
 
-    <section class="reveal" id="projects">
+    <section class="reveal visible" id="projects">
       <h2><span class="mono">// projects</span></h2>
       <div class="grid-2">
         <div class="card">
           <h3>Cyber Defensive Engine</h3>
           <div class="card-meta"><span>C++ · Python · ML</span></div>
           <ul>
-            <li>Designed a hybrid network security engine pairing a high-performance C++ packet sniffer with a Python ML core for real-time anomaly detection.</li>
-            <li>Built an unsupervised ML pipeline to monitor system logs and network traffic, detecting anomalies such as DDoS attacks and port scans.</li>
-            <li>Implemented real-time defensive actions and secure inter-process communication via Unix Domain Sockets (UDS/IPC).</li>
+            <li>Designed a hybrid network security engine pairing a high-performance C++ packet sniffer with a Python ML core for real-time anomaly detection[cite: 1].</li>
+            <li>Built an unsupervised ML pipeline to monitor system logs and network traffic, detecting anomalies such as DDoS attacks and port scans[cite: 1].</li>
+            <li>Implemented real-time defensive actions and secure inter-process communication via Unix Domain Sockets (UDS/IPC)[cite: 1].</li>
           </ul>
         </div>
         <div class="card">
           <h3>Dr. Vaccine Antivirus</h3>
           <div class="card-meta"><span>Java</span></div>
           <ul>
-            <li>Built a signature-based file-scanning antivirus prototype in Java with pattern-matching detection logic.</li>
-            <li>Designed a simple UI for initiating and monitoring scan operations.</li>
+            <li>Built a signature-based file-scanning antivirus prototype in Java with pattern-matching detection logic[cite: 1].</li>
+            <li>Designed a simple UI for initiating and monitoring scan operations[cite: 1].</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section class="reveal" id="academics">
+    <section class="reveal visible" id="github-activity">
+      <h2><span class="mono">// github_activity</span></h2>
+      <div class="card">
+        <div class="card-meta">
+          <span>A23894843's Contribution Graph</span>
+          <span class="date">Live Data</span>
+        </div>
+        <div class="github-chart-container">
+          <a href="https://github.com/A23894843" target="_blank" rel="noopener">
+            <img 
+              src="https://ghchart.rshah.org/5eead4/A23894843" 
+              alt="Abhinandan's GitHub Contribution Chart" 
+              class="github-chart-img"
+            />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal visible" id="academics">
       <h2><span class="mono">// academic_history</span></h2>
       <div class="grid-2">
         <div class="card">
           <h3>Education</h3>
           <br>
-          <p style="color:var(--ink); font-weight:600; margin-bottom:0.2rem;">Gurukul Kangri Vishwavidyalaya</p>
-          <p style="color:var(--dim); margin-bottom:1rem; font-size:0.9rem;">B.Tech in Computer Science &amp; Engineering | 2023 – Present</p>
-          <ul><li>CGPA (Till now): 7.755</li></ul>
+          <p style="color:var(--ink); font-weight:600; margin-bottom:0.2rem;">Gurukul Kangri Vishwavidyalaya[cite: 1]</p>
+          <p style="color:var(--dim); margin-bottom:1rem; font-size:0.9rem;">B.Tech in Computer Science &amp; Engineering | 2023 – Present[cite: 1]</p>
+          <ul><li>CGPA (Till now): 7.755[cite: 1]</li></ul>
           <br>
-          <p style="color:var(--ink); font-weight:600; margin-bottom:0.2rem;">S.B.N. International School, Laksar</p>
-          <p style="color:var(--dim); margin-bottom:1rem; font-size:0.9rem;">CBSE Board — Secondary &amp; Higher Secondary</p>
+          <p style="color:var(--ink); font-weight:600; margin-bottom:0.2rem;">S.B.N. International School, Laksar[cite: 1]</p>
+          <p style="color:var(--dim); margin-bottom:1rem; font-size:0.9rem;">CBSE Board — Secondary &amp; Higher Secondary[cite: 1]</p>
           <ul>
-            <li>12th Grade (2022) — Score: 67%</li>
-            <li>10th Grade (2020) — Score: 70%</li>
+            <li>12th Grade (2022) — Score: 67%[cite: 1]</li>
+            <li>10th Grade (2020) — Score: 70%[cite: 1]</li>
           </ul>
         </div>
 
@@ -425,11 +461,11 @@
           <h3>Certifications</h3>
           <br>
           <ul>
-            <li><strong>Cybersecurity Fundamentals</strong> — IBM SkillsBuild, Intermediate level (<a class="cred-link" href="https://www.credly.com/badges/8325b11f-6533-4d11-b5d5-2c29dcbd181c/public_url" target="_blank" rel="noopener">verified via Credly</a>, ID: PWID-B0454800), 2026</li>
-            <li><strong>Python Internship</strong> — CodSoft</li>
-            <li><strong>AI &amp; ML Workshop</strong> — Sofcon India Pvt. Ltd.</li>
-            <li><strong>Group Discussion on Technology and Innovation</strong> — NDLI Club</li>
-            <li><strong>Intelligent BMS: Leveraging AI for Accuracy, Safety and Sustainability</strong> — Mathworks</li>
+            <li><strong>Cybersecurity Fundamentals</strong> — IBM SkillsBuild, Intermediate level (<a class="cred-link" href="https://www.credly.com/badges/8325b11f-6533-4d11-b5d5-2c29dcbd181c/public_url" target="_blank" rel="noopener">verified via Credly[cite: 1]</a>, ID: PWID-B0454800), 2026[cite: 1]</li>
+            <li><strong>Python Internship</strong> — CodSoft[cite: 1]</li>
+            <li><strong>AI &amp; ML Workshop</strong> — Sofcon India Pvt. Ltd.[cite: 1]</li>
+            <li><strong>Group Discussion on Technology and Innovation</strong> — NDLI Club[cite: 1]</li>
+            <li><strong>Intelligent BMS: Leveraging AI for Accuracy, Safety and Sustainability</strong> — Mathworks[cite: 1]</li>
           </ul>
         </div>
       </div>
@@ -439,13 +475,13 @@
 
   <footer>
     <div class="flinks">
-      <a href="mailto:a23894843@gmail.com">a23894843@gmail.com</a>
-      <a href="tel:+919528998232">+91-95289-98232</a>
-      <a href="https://github.com/A23894843/" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.linkedin.com/in/abhinandan-29b66b28b" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:a23894843@gmail.com">a23894843@gmail.com[cite: 1]</a>
+      <a href="tel:+919528998232">+91-95289-98232[cite: 1]</a>
+      <a href="https://github.com/A23894843/" target="_blank" rel="noopener">GitHub[cite: 1]</a>
+      <a href="https://www.linkedin.com/in/abhinandan-29b66b28b" target="_blank" rel="noopener">LinkedIn[cite: 1]</a>
     </div>
-    <p>📍 <a href="https://www.google.com/maps/search/?api=1&query=Alipur,+Ibrahimpur,+Bahadrabad,+Haridwar,+Uttarakhand" target="_blank" rel="noopener" class="location-link">Alipur, Ibrahimpur, Bahadrabad, Haridwar, U.K.</a></p>
-    <p class="copyright">© 2026 ABHINANDAN. All rights reserved.</p>
+    <p>📍 <a href="https://www.google.com/maps/search/?api=1&amp;query=Alipur,+Ibrahimpur,+Bahadrabad,+Haridwar,+Uttarakhand" target="_blank" rel="noopener" class="location-link">Alipur, Ibrahimpur, Bahadrabad, Haridwar, U.K.[cite: 1]</a></p>
+    <p class="copyright">© 2026 ABHINANDAN. All rights reserved.[cite: 1]</p>
   </footer>
 
 <script>
@@ -724,5 +760,4 @@
   })();
 </script>
 
-</body>
-</html>
+</body></html>
