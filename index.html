@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<!-- saved from url=(0043)https://my-portfolio-abhinandan.vercel.app/ -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="en">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Abhinandan — Cybersecurity &amp; Software Engineering</title>
-<link rel="preconnect" href="https://fonts.googleapis.com/">
-<link href="./Abhinandan — Cybersecurity &amp; Software Engineering_files/css2" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --void:#05080d;
@@ -21,7 +21,6 @@
     --bg-glow-2:rgba(251,113,133,0.05);
     color-scheme:dark;
   }
-
   html[data-theme="light"]{
     --void:#f7f9fb;
     --panel:#ffffff;
@@ -36,7 +35,6 @@
     --bg-glow-2:rgba(225,29,72,0.04);
     color-scheme:light;
   }
-
   *{ margin:0; padding:0; box-sizing:border-box; }
   html{ scroll-behavior:smooth; }
 
@@ -44,30 +42,18 @@
     position:fixed; inset:0; width:100%; height:100%;
     z-index:-2; pointer-events:none; display:block;
   }
-
   #bg-circuit{
     position:fixed; inset:-6%;
     width:112%; height:112%;
     z-index:-1; pointer-events:none; display:block;
-    opacity:.34;
-    transform:translate3d(0,0,0);
-    transition:opacity .35s ease;
-    will-change:transform;
+    opacity:.34; transform:translate3d(0,0,0);
+    transition:opacity .35s ease; will-change:transform;
   }
   html[data-theme="light"] #bg-circuit{ opacity:.20; }
-  #bg-circuit .trace{
-    fill:none; stroke:var(--signal); stroke-opacity:.16; stroke-width:1.15;
-    stroke-linecap:round; stroke-linejoin:round;
-  }
-  #bg-circuit .trace.alert{
-    stroke:var(--alert); stroke-opacity:.10;
-  }
-  #bg-circuit .node{
-    fill:var(--signal); fill-opacity:.22;
-  }
-  #bg-circuit .node.alert{
-    fill:var(--alert); fill-opacity:.16;
-  }
+  #bg-circuit .trace{ fill:none; stroke:var(--signal); stroke-opacity:.16; stroke-width:1.15; stroke-linecap:round; stroke-linejoin:round; }
+  #bg-circuit .trace.alert{ stroke:var(--alert); stroke-opacity:.10; }
+  #bg-circuit .node{ fill:var(--signal); fill-opacity:.22; }
+  #bg-circuit .node.alert{ fill:var(--alert); fill-opacity:.16; }
 
   body{
     background:
@@ -81,17 +67,14 @@
     transition:background-color .4s ease, color .4s ease;
   }
   ::selection{ background:var(--signal); color:#031014; }
-
   .mono{ font-family:'JetBrains Mono', monospace; }
-
   a{ color:inherit; }
 
   /* ---------- NAV ---------- */
   .navbar{
     display:flex; justify-content:space-between; align-items:center;
     padding:1.1rem 5%;
-    background:var(--panel-2);
-    backdrop-filter:blur(14px);
+    background:var(--panel-2); backdrop-filter:blur(14px);
     position:sticky; top:0; z-index:1000;
     border-bottom:1px solid var(--line);
   }
@@ -126,16 +109,13 @@
   .container{ max-width:980px; margin:0 auto; padding:0 2rem; }
   section{ padding:5rem 0; border-bottom:1px solid var(--line); }
   section:last-of-type{ border-bottom:none; }
-
   .reveal{ opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease; }
   .reveal.visible{ opacity:1; transform:translateY(0); }
-
   .eyebrow{
     font-family:'JetBrains Mono', monospace;
     color:var(--signal); font-size:0.85rem; letter-spacing:0.5px;
     margin-bottom:0.9rem; display:block;
   }
-
   h2{
     font-family:'Space Grotesk', sans-serif;
     font-size:1.65rem; font-weight:600; margin-bottom:2.2rem;
@@ -149,21 +129,27 @@
     position:relative; padding:5.5rem 0 4.5rem; overflow:hidden;
     border-bottom:1px solid var(--line);
   }
+
+  /* ---- FIXED RADAR ---- */
   .radar{
     position:absolute; top:-90px; right:-140px; width:420px; height:420px;
     pointer-events:none; opacity:0.55;
-    transition:transform .25s ease-out;
-    will-change:transform;
+    transition:transform .25s ease-out; will-change:transform;
   }
-  .radar svg{ width:100%; height:100%; }
-  .radar .ring{ fill:none; stroke:var(--line); stroke-width:1; }
-  .radar .sweep-wrap{ transform-origin:210px 210px; animation:spin 6s linear infinite; }
+  .radar svg{ width:100%; height:100%; overflow:visible; }
+  .radar .ring{ fill:none; stroke:var(--signal); stroke-width:1; stroke-opacity:0.35; }
+  .radar .crosshair{ stroke:var(--signal); stroke-width:0.6; stroke-opacity:0.2; }
+  .radar .sweep-wrap{
+    transform-origin:210px 210px;
+    animation:spin 6s linear infinite;
+  }
   .radar .sweep{ fill:url(#sweepGrad); }
   .radar .blip{ fill:var(--signal); animation:blip 2.6s ease-in-out infinite; }
   .radar .blip.b2{ animation-delay:.7s; fill:var(--alert); }
   .radar .blip.b3{ animation-delay:1.5s; }
+
   @keyframes spin{ to{ transform:rotate(360deg); } }
-  @keyframes blip{ 0%,100%{ opacity:.25; r:3; } 50%{ opacity:1; r:4.5; } }
+  @keyframes blip{ 0%,100%{ opacity:.25; } 50%{ opacity:1; } }
   @keyframes blink{ 50%{ opacity:0; } }
 
   .hero-content{ position:relative; z-index:2; max-width:640px; }
@@ -225,19 +211,102 @@
 
   /* ---------- GITHUB CHART ---------- */
   .github-chart-container{
-    overflow-x:auto;
-    padding:0.5rem 0;
-    display:flex;
-    justify-content:center;
+    overflow-x:auto; padding:0.5rem 0;
+    display:flex; justify-content:center;
   }
   .github-chart-img{
-    max-width:100%;
-    height:auto;
-    display:block;
-    transition:transform .3s ease;
+    max-width:100%; height:auto; display:block;
+    border-radius:6px; transition:transform .3s ease;
   }
-  .github-chart-img:hover{
-    transform:scale(1.01);
+  .github-chart-img:hover{ transform:scale(1.01); }
+
+  /* ---------- LEETCODE SECTION ---------- */
+  .lc-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:1rem;
+    margin-bottom:1.4rem;
+  }
+  .lc-stat{
+    background:var(--panel); border:1px solid var(--line);
+    border-radius:6px; padding:1.2rem 1.4rem;
+    text-align:center;
+    transition:border-color .3s ease, transform .3s ease;
+  }
+  .lc-stat:hover{ border-color:var(--signal); transform:translateY(-3px); }
+  .lc-stat .lc-num{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:2rem; font-weight:700; line-height:1;
+    margin-bottom:0.3rem;
+  }
+  .lc-stat .lc-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.75rem; color:var(--dim); letter-spacing:0.5px;
+  }
+  .lc-stat.total .lc-num{ color:var(--signal); }
+  .lc-stat.easy  .lc-num{ color:#4ade80; }
+  .lc-stat.med   .lc-num{ color:#fbbf24; }
+  .lc-stat.hard  .lc-num{ color:#fb7185; }
+
+  .lc-bar-wrap{ margin-bottom:1.4rem; }
+  .lc-bar-row{ display:flex; align-items:center; gap:0.8rem; margin-bottom:0.55rem; }
+  .lc-bar-label{ font-family:'JetBrains Mono', monospace; font-size:0.8rem; width:38px; flex-shrink:0; }
+  .lc-bar-label.easy{ color:#4ade80; }
+  .lc-bar-label.med { color:#fbbf24; }
+  .lc-bar-label.hard{ color:#fb7185; }
+  .lc-bar-track{
+    flex:1; height:7px; background:var(--line); border-radius:4px; overflow:hidden;
+  }
+  .lc-bar-fill{
+    height:100%; border-radius:4px;
+    transition:width 1.2s cubic-bezier(.4,0,.2,1);
+  }
+  .lc-bar-fill.easy{ background:#4ade80; }
+  .lc-bar-fill.med { background:#fbbf24; }
+  .lc-bar-fill.hard{ background:#fb7185; }
+  .lc-bar-count{ font-family:'JetBrains Mono', monospace; font-size:0.78rem; color:var(--dim); width:28px; text-align:right; flex-shrink:0; }
+
+  .lc-footer{
+    display:flex; align-items:center; justify-content:space-between;
+    flex-wrap:wrap; gap:0.5rem;
+  }
+  .lc-status{
+    font-family:'JetBrains Mono', monospace; font-size:0.75rem;
+    color:var(--dim); display:flex; align-items:center; gap:0.4rem;
+  }
+  .lc-dot{
+    width:7px; height:7px; border-radius:50%; background:#4ade80;
+    animation:pulse-dot 2s ease-in-out infinite;
+    display:inline-block;
+  }
+  @keyframes pulse-dot{
+    0%,100%{ opacity:1; transform:scale(1); }
+    50%{ opacity:0.5; transform:scale(0.7); }
+  }
+  .lc-link{
+    font-family:'JetBrains Mono', monospace; font-size:0.8rem;
+    color:var(--signal); text-decoration:none;
+    border-bottom:1px solid rgba(94,234,212,0.3);
+    transition:border-color .2s ease;
+  }
+  .lc-link:hover{ border-color:var(--signal); }
+
+  .lc-error{
+    text-align:center; padding:1.5rem;
+    font-family:'JetBrains Mono', monospace; font-size:0.85rem;
+    color:var(--dim); display:none;
+  }
+  .lc-loading{
+    text-align:center; padding:1.5rem;
+    font-family:'JetBrains Mono', monospace; font-size:0.85rem;
+    color:var(--dim);
+  }
+  .lc-loading::after{
+    content:''; display:inline-block; width:12px;
+    animation:dots 1.2s step-end infinite;
+  }
+  @keyframes dots{
+    0%{ content:'.'; } 33%{ content:'..'; } 66%{ content:'...'; }
   }
 
   /* ---------- FOOTER ---------- */
@@ -246,19 +315,6 @@
   footer a{ color:var(--signal); text-decoration:none; }
   footer a:hover{ text-decoration:underline; }
   footer p.copyright{ margin-top:1.2rem; color:#334155; font-family:'JetBrains Mono', monospace; font-size:0.8rem; }
-
-  @media (max-width:768px){
-    .navbar{ flex-direction:column; gap:1rem; }
-    .nav-links{ justify-content:center; }
-    .hero h1{ font-size:2.2rem; }
-    .grid-2{ grid-template-columns:1fr; }
-    .radar{ width:260px; height:260px; top:-60px; right:-90px; opacity:0.35; }
-  }
-
-  @media (prefers-reduced-motion: reduce){
-    *{ animation:none !important; transition:none !important; }
-    .reveal{ opacity:1; transform:none; }
-  }
 
   /* ---------- THEME TOGGLE ---------- */
   .theme-toggle{
@@ -273,491 +329,498 @@
   .theme-toggle .icon-sun{ display:none; }
   html[data-theme="light"] .theme-toggle .icon-moon{ display:none; }
   html[data-theme="light"] .theme-toggle .icon-sun{ display:block; }
+
+  @media(max-width:768px){
+    .navbar{ flex-direction:column; gap:1rem; }
+    .nav-links{ justify-content:center; }
+    .hero h1{ font-size:2.2rem; }
+    .grid-2{ grid-template-columns:1fr; }
+    .radar{ width:260px; height:260px; top:-60px; right:-90px; opacity:0.35; }
+    .lc-grid{ grid-template-columns:1fr 1fr; }
+    .lc-stat.total{ grid-column:1/-1; }
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{ animation:none !important; transition:none !important; }
+    .reveal{ opacity:1; transform:none; }
+  }
 </style>
 </head>
 <body>
-  <canvas id="bg-canvas" aria-hidden="true" width="1920" height="912" style="width: 1536px; height: 730px;"></canvas>
 
-  <svg id="bg-circuit" aria-hidden="true" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" style="transform: translate3d(-2.5px, -4.38px, 0px);">
-    <g>
-      <path class="trace" d="M80 140 H300 V220 H470 V120 H700 V240 H980 V170 H1210 V300 H1510"></path>
-      <path class="trace" d="M120 420 H360 V350 H540 V520 H760 V430 H980 V590 H1240 V470 H1500"></path>
-      <path class="trace" d="M70 760 H260 V680 H500 V820 H760 V700 H1020 V860 H1320 V740 H1540"></path>
-      <path class="trace" d="M220 80 V250 H420 V390 H620 V300 H850 V450 H1110 V360 H1390 V520"></path>
-      <path class="trace alert" d="M1380 90 H1160 V210 H920 V120 H690 V280 H420 V200 H150"></path>
-      <path class="trace alert" d="M1460 860 H1220 V760 H940 V900 H700 V780 H430 V880 H160"></path>
-      <path class="trace" d="M860 40 V180 H1040 V80 H1320 V210 H1500"></path>
-      <path class="trace" d="M980 1000 V820 H1160 V920 H1420"></path>
-      <circle class="node" cx="300" cy="140" r="4"></circle><circle class="node" cx="470" cy="220" r="4"></circle>
-      <circle class="node" cx="700" cy="240" r="4"></circle><circle class="node" cx="980" cy="170" r="4"></circle>
-      <circle class="node" cx="1210" cy="300" r="4"></circle><circle class="node" cx="540" cy="520" r="4"></circle>
-      <circle class="node" cx="980" cy="590" r="4"></circle><circle class="node" cx="260" cy="680" r="4"></circle>
-      <circle class="node" cx="760" cy="700" r="4"></circle><circle class="node" cx="1020" cy="860" r="4"></circle>
-      <circle class="node alert" cx="1160" cy="210" r="4"></circle><circle class="node alert" cx="690" cy="280" r="4"></circle>
-      <circle class="node alert" cx="940" cy="900" r="4"></circle><circle class="node alert" cx="430" cy="880" r="4"></circle>
-    </g>
-  </svg>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
 
+<svg id="bg-circuit" aria-hidden="true" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+  <g>
+    <path class="trace" d="M80 140 H300 V220 H470 V120 H700 V240 H980 V170 H1210 V300 H1510"></path>
+    <path class="trace" d="M120 420 H360 V350 H540 V520 H760 V430 H980 V590 H1240 V470 H1500"></path>
+    <path class="trace" d="M70 760 H260 V680 H500 V820 H760 V700 H1020 V860 H1320 V740 H1540"></path>
+    <path class="trace" d="M220 80 V250 H420 V390 H620 V300 H850 V450 H1110 V360 H1390 V520"></path>
+    <path class="trace alert" d="M1380 90 H1160 V210 H920 V120 H690 V280 H420 V200 H150"></path>
+    <path class="trace alert" d="M1460 860 H1220 V760 H940 V900 H700 V780 H430 V880 H160"></path>
+    <path class="trace" d="M860 40 V180 H1040 V80 H1320 V210 H1500"></path>
+    <path class="trace" d="M980 1000 V820 H1160 V920 H1420"></path>
+    <circle class="node" cx="300" cy="140" r="4"></circle>
+    <circle class="node" cx="470" cy="220" r="4"></circle>
+    <circle class="node" cx="700" cy="240" r="4"></circle>
+    <circle class="node" cx="980" cy="170" r="4"></circle>
+    <circle class="node" cx="1210" cy="300" r="4"></circle>
+    <circle class="node" cx="540" cy="520" r="4"></circle>
+    <circle class="node" cx="980" cy="590" r="4"></circle>
+    <circle class="node" cx="260" cy="680" r="4"></circle>
+    <circle class="node" cx="760" cy="700" r="4"></circle>
+    <circle class="node" cx="1020" cy="860" r="4"></circle>
+    <circle class="node alert" cx="1160" cy="210" r="4"></circle>
+    <circle class="node alert" cx="690" cy="280" r="4"></circle>
+    <circle class="node alert" cx="940" cy="900" r="4"></circle>
+    <circle class="node alert" cx="430" cy="880" r="4"></circle>
+  </g>
+</svg>
 
-  <nav class="navbar">
-    <a href="https://my-portfolio-abhinandan.vercel.app/#" class="nav-logo">ABHINANDAN<span class="blink">_</span></a>
-    <div class="nav-links">
-      <a href="mailto:a23894843@gmail.com">Email</a>
-      <a href="tel:+919528998232">Phone</a>
-      <a href="https://github.com/A23894843/" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.linkedin.com/in/abhinandan-29b66b28b" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://drive.google.com/file/d/1F9vNLL18IpoJhXQqIfTwiu3u6dEPZfBH/view?usp=sharing" target="_blank" rel="noopener" class="nav-btn">Resume</a>
-      <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark theme">
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
-      </button>
+<nav class="navbar">
+  <a href="#" class="nav-logo">ABHINANDAN<span class="blink">_</span></a>
+  <div class="nav-links">
+    <a href="mailto:a23894843@gmail.com">Email</a>
+    <a href="tel:+919528998232">Phone</a>
+    <a href="https://github.com/A23894843/" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/abhinandan-29b66b28b" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://drive.google.com/file/d/1F9vNLL18IpoJhXQqIfTwiu3u6dEPZfBH/view?usp=sharing" target="_blank" rel="noopener" class="nav-btn">Resume</a>
+    <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark theme">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
+    </button>
+  </div>
+</nav>
+
+<main class="container">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="radar" aria-hidden="true">
+      <svg viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="sweepGrad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#5eead4" stop-opacity="0.55"/>
+            <stop offset="100%" stop-color="#5eead4" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <!-- Crosshairs -->
+        <line class="crosshair" x1="210" y1="30" x2="210" y2="390"/>
+        <line class="crosshair" x1="30" y1="210" x2="390" y2="210"/>
+        <!-- Rings — all centred on 210,210 -->
+        <circle class="ring" cx="210" cy="210" r="60"/>
+        <circle class="ring" cx="210" cy="210" r="120"/>
+        <circle class="ring" cx="210" cy="210" r="180"/>
+        <!-- Sweep -->
+        <g class="sweep-wrap">
+          <path class="sweep" d="M210,210 L210,30 A180,180 0 0,1 366,120 Z"/>
+        </g>
+        <!-- Blips -->
+        <circle class="blip b1" cx="290" cy="150" r="3.5"/>
+        <circle class="blip b2" cx="150" cy="290" r="3.5"/>
+        <circle class="blip b3" cx="120" cy="140" r="3.5"/>
+      </svg>
     </div>
-  </nav>
 
-  <main class="container">
+    <div class="hero-content">
+      <span class="eyebrow">// whoami</span>
+      <h1>ABHINANDAN<span class="cursor">_</span></h1>
+      <p class="typed-line mono" id="typedLine"><span class="type-cursor"></span></p>
+      <p class="lead">Computer Science &amp; Engineering student specializing in cybersecurity, with hands-on experience building a hybrid C++/Python real-time network defense engine using unsupervised machine learning for anomaly detection. Proficient in Python, C++, and MySQL. Certified in IBM SkillsBuild Cybersecurity Fundamentals.</p>
+      <p class="strengths"><span class="label">STRENGTHS</span>Strong problem-solving ability, detail-oriented, quick learner, adaptable, and team-friendly.</p>
+      <p>📍 <a href="https://www.google.com/maps/search/?api=1&query=Alipur,+Ibrahimpur,+Bahadrabad,+Haridwar,+Uttarakhand" target="_blank" rel="noopener" class="location-link">Alipur, Ibrahimpur, Bahadrabad, Haridwar, U.K.</a></p>
+    </div>
+  </section>
 
-    <section class="hero">
-      <div class="radar" aria-hidden="true" style="transform: translate(3.28952px, 4.8479px);">
-        <svg viewBox="0 0 420 420">
-          <defs>
-            <radialgradient id="sweepGrad" cx="0%" cy="0%" r="100%">
-              <stop offset="0%" stop-color="#5eead4" stop-opacity="0.45"></stop>
-              <stop offset="100%" stop-color="#5eead4" stop-opacity="0"></stop>
-            </radialgradient>
-          </defs>
-          <circle class="ring" cx="210" cy="210" r="60"></circle>
-          <circle class="ring" cx="210" cy="210" r="120"></circle>
-          <circle class="ring" cx="210" cy="210" r="180"></circle>
-          <g class="sweep-wrap">
-            <path class="sweep" d="M210,210 L210,30 A180,180 0 0,1 330,90 Z"></path>
-          </g>
-          <circle class="blip b1" cx="290" cy="150" r="3.5"></circle>
-          <circle class="blip b2" cx="150" cy="290" r="3.5"></circle>
-          <circle class="blip b3" cx="120" cy="140" r="3.5"></circle>
-        </svg>
+  <!-- TECH STACK -->
+  <section class="reveal" id="skills">
+    <h2><span class="mono">// tech_stack</span></h2>
+    <div class="tags-container">
+      <span class="tag">C++</span>
+      <span class="tag">Python</span>
+      <span class="tag">Java</span>
+      <span class="tag">SQL</span>
+      <span class="tag">MySQL</span>
+      <span class="tag">Kali Linux</span>
+      <span class="tag">Git / GitHub</span>
+      <span class="tag">VS Code</span>
+      <span class="tag">MySQL Workbench</span>
+      <span class="tag">NumPy</span>
+      <span class="tag">Matplotlib</span>
+      <span class="tag">Tkinter</span>
+    </div>
+  </section>
+
+  <!-- SECURITY DOMAINS -->
+  <section class="reveal" id="security-domains">
+    <h2><span class="mono">// security_domains</span></h2>
+    <div class="tags-container">
+      <span class="tag">Cryptography</span>
+      <span class="tag">Cyber Threat Analysis</span>
+      <span class="tag">Cyber Threat Intelligence</span>
+      <span class="tag">Incident Response</span>
+      <span class="tag">Vulnerability Management</span>
+      <span class="tag">Security Risk Management</span>
+      <span class="tag">Security Strategies</span>
+      <span class="tag">Social Engineering Awareness</span>
+      <span class="tag">Threat Detection</span>
+      <span class="tag">Information Security</span>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="reveal" id="experience">
+    <h2><span class="mono">// experience</span></h2>
+    <div class="card">
+      <h3>Python Intern</h3>
+      <div class="card-meta">
+        <span>CodSoft</span>
+        <span class="date">Aug 2025</span>
       </div>
+      <ul>
+        <li>Built a Contact Management System (Python/Tkinter GUI + MySQL) supporting add, update, delete, and search operations.</li>
+        <li>Developed a secure password generator using randomization and string-handling techniques.</li>
+        <li>Built a GUI-based Rock-Paper-Scissors game applying control-flow and logic-building concepts.</li>
+      </ul>
+    </div>
+  </section>
 
-      <div class="hero-content">
-        <span class="eyebrow">// whoami</span>
-        <h1>ABHINANDAN<span class="cursor">_</span></h1>
-        <p class="typed-line mono" id="typedLine">cybersecurity &amp; software engineering student<span class="type-cursor"></span></p>
-        <p class="lead">Computer Science &amp; Engineering student specializing in cybersecurity, with hands-on experience building a hybrid C++/Python real-time network defense engine using unsupervised machine learning for anomaly detection. Proficient in Python, C++, and MySQL. Certified in IBM SkillsBuild Cybersecurity Fundamentals.</p>
-        <p class="strengths"><span class="label">STRENGTHS</span>Strong problem-solving ability, detail-oriented, quick learner, adaptable, and team-friendly.</p>
-        <p>📍 <a href="https://www.google.com/maps/search/?api=1&amp;query=Alipur,+Ibrahimpur,+Bahadrabad,+Haridwar,+Uttarakhand" target="_blank" rel="noopener" class="location-link">Alipur, Ibrahimpur, Bahadrabad, Haridwar, U.K.</a></p>
-      </div>
-    </section>
-
-    <section class="reveal visible" id="skills">
-      <h2><span class="mono">// tech_stack</span></h2>
-      <div class="tags-container">
-        <span class="tag">C++</span>
-        <span class="tag">Python</span>
-        <span class="tag">Java</span>
-        <span class="tag">SQL</span>
-        <span class="tag">MySQL</span>
-        <span class="tag">Kali Linux</span>
-        <span class="tag">Git / GitHub</span>
-        <span class="tag">VS Code</span>
-        <span class="tag">MySQL Workbench</span>
-        <span class="tag">NumPy</span>
-        <span class="tag">Matplotlib</span>
-        <span class="tag">Tkinter</span>
-      </div>
-    </section>
-
-    <section class="reveal visible" id="security-domains">
-      <h2><span class="mono">// security_domains</span></h2>
-      <div class="tags-container">
-        <span class="tag">Cryptography</span>
-        <span class="tag">Cyber Threat Analysis</span>
-        <span class="tag">Cyber Threat Intelligence</span>
-        <span class="tag">Incident Response</span>
-        <span class="tag">Vulnerability Management</span>
-        <span class="tag">Security Risk Management</span>
-        <span class="tag">Security Strategies</span>
-        <span class="tag">Social Engineering Awareness</span>
-        <span class="tag">Threat Detection</span>
-        <span class="tag">Information Security</span>
-      </div>
-    </section>
-
-    <section class="reveal visible" id="experience">
-      <h2><span class="mono">// experience</span></h2>
+  <!-- PROJECTS -->
+  <section class="reveal" id="projects">
+    <h2><span class="mono">// projects</span></h2>
+    <div class="grid-2">
       <div class="card">
-        <h3>Python Intern</h3>
-        <div class="card-meta">
-          <span>CodSoft</span>
-          <span class="date">Aug 2025</span>
-        </div>
+        <h3>Cyber Defensive Engine</h3>
+        <div class="card-meta"><span>C++ · Python · ML</span></div>
         <ul>
-          <li>Built a Contact Management System (Python/Tkinter GUI + MySQL) supporting add, update, delete, and search operations.</li>
-          <li>Developed a secure password generator using randomization and string-handling techniques.</li>
-          <li>Built a GUI-based Rock-Paper-Scissors game applying control-flow and logic-building concepts.</li>
+          <li>Designed a hybrid network security engine pairing a high-performance C++ packet sniffer with a Python ML core for real-time anomaly detection.</li>
+          <li>Built an unsupervised ML pipeline to monitor system logs and network traffic, detecting anomalies such as DDoS attacks and port scans.</li>
+          <li>Implemented real-time defensive actions and secure inter-process communication via Unix Domain Sockets (UDS/IPC).</li>
         </ul>
       </div>
-    </section>
-
-    <section class="reveal visible" id="projects">
-      <h2><span class="mono">// projects</span></h2>
-      <div class="grid-2">
-        <div class="card">
-          <h3>Cyber Defensive Engine</h3>
-          <div class="card-meta"><span>C++ · Python · ML</span></div>
-          <ul>
-            <li>Designed a hybrid network security engine pairing a high-performance C++ packet sniffer with a Python ML core for real-time anomaly detection.</li>
-            <li>Built an unsupervised ML pipeline to monitor system logs and network traffic, detecting anomalies such as DDoS attacks and port scans.</li>
-            <li>Implemented real-time defensive actions and secure inter-process communication via Unix Domain Sockets (UDS/IPC).</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Dr. Vaccine Antivirus</h3>
-          <div class="card-meta"><span>Java</span></div>
-          <ul>
-            <li>Built a signature-based file-scanning antivirus prototype in Java with pattern-matching detection logic.</li>
-            <li>Designed a simple UI for initiating and monitoring scan operations.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="reveal visible" id="github-activity">
-      <h2><span class="mono">// github_activity</span></h2>
       <div class="card">
-        <div class="card-meta">
-          <span>A23894843's Contribution Graph</span>
-          <span class="date">Live Data</span>
-        </div>
-        <div class="github-chart-container">
-          <a href="https://github.com/A23894843" target="_blank" rel="noopener">
-            <img 
-              src="https://ghchart.rshah.org/5eead4/A23894843" 
-              alt="Abhinandan's GitHub Contribution Chart" 
-              class="github-chart-img"
-            />
-          </a>
-        </div>
+        <h3>Dr. Vaccine Antivirus</h3>
+        <div class="card-meta"><span>Java</span></div>
+        <ul>
+          <li>Built a signature-based file-scanning antivirus prototype in Java with pattern-matching detection logic.</li>
+          <li>Designed a simple UI for initiating and monitoring scan operations.</li>
+        </ul>
       </div>
-    </section>
-
-    <section class="reveal visible" id="academics">
-      <h2><span class="mono">// academic_history</span></h2>
-      <div class="grid-2">
-        <div class="card">
-          <h3>Education</h3>
-          <br>
-          <p style="color:var(--ink); font-weight:600; margin-bottom:0.2rem;">Gurukul Kangri Vishwavidyalaya</p>
-          <p style="color:var(--dim); margin-bottom:1rem; font-size:0.9rem;">B.Tech in Computer Science &amp; Engineering | 2023 – Present</p>
-          <ul><li>CGPA (Till now): 7.755</li></ul>
-          <br>
-          <p style="color:var(--ink); font-weight:600; margin-bottom:0.2rem;">S.B.N. International School, Laksar</p>
-          <p style="color:var(--dim); margin-bottom:1rem; font-size:0.9rem;">CBSE Board — Secondary &amp; Higher Secondary</p>
-          <ul>
-            <li>12th Grade (2022) — Score: 67%</li>
-            <li>10th Grade (2020) — Score: 70%</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Certifications</h3>
-          <br>
-          <ul>
-            <li><strong>Cybersecurity Fundamentals</strong> — IBM SkillsBuild, Intermediate level (<a class="cred-link" href="https://www.credly.com/badges/8325b11f-6533-4d11-b5d5-2c29dcbd181c/public_url" target="_blank" rel="noopener">verified via Credly</a>, ID: PWID-B0454800), 2026</li>
-            <li><strong>Python Internship</strong> — CodSoft</li>
-            <li><strong>AI &amp; ML Workshop</strong> — Sofcon India Pvt. Ltd.</li>
-            <li><strong>Group Discussion on Technology and Innovation</strong> — NDLI Club</li>
-            <li><strong>Intelligent BMS: Leveraging AI for Accuracy, Safety and Sustainability</strong> — Mathworks</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <div class="flinks">
-      <a href="mailto:a23894843@gmail.com">a23894843@gmail.com</a>
-      <a href="tel:+919528998232">+91-95289-98232</a>
-      <a href="https://github.com/A23894843/" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.linkedin.com/in/abhinandan-29b66b28b" target="_blank" rel="noopener">LinkedIn</a>
     </div>
-    <p>📍 <a href="https://www.google.com/maps/search/?api=1&amp;query=Alipur,+Ibrahimpur,+Bahadrabad,+Haridwar,+Uttarakhand" target="_blank" rel="noopener" class="location-link">Alipur, Ibrahimpur, Bahadrabad, Haridwar, U.K.</a></p>
-    <p class="copyright">© 2026 ABHINANDAN. All rights reserved.</p>
-  </footer>
+  </section>
+
+  <!-- GITHUB ACTIVITY -->
+  <section class="reveal" id="github-activity">
+    <h2><span class="mono">// github_activity</span></h2>
+    <div class="card">
+      <div class="card-meta">
+        <span>A23894843 · Contribution Graph</span>
+        <span class="date">Live Data</span>
+      </div>
+      <!-- Streak embed — most reliable -->
+      <div style="display:flex;justify-content:center;margin-bottom:1.2rem;">
+        <img
+          src="https://streak-stats.demolab.com/?user=A23894843&theme=transparent&background=0D141F&border=1c2836&stroke=1c2836&ring=5eead4&fire=fb7185&currStreakNum=5eead4&sideNums=5eead4&currStreakLabel=5eead4&sideLabels=7d8a9c&dates=7d8a9c"
+          alt="GitHub Streak Stats"
+          style="max-width:100%;border-radius:6px;"
+          onerror="this.style.display='none'"
+        />
+      </div>
+      <!-- Contribution heatmap via activity-graph -->
+      <div class="github-chart-container">
+        <a href="https://github.com/A23894843" target="_blank" rel="noopener">
+          <img
+            src="https://github-readme-activity-graph.vercel.app/graph?username=A23894843&bg_color=0d141f&color=5eead4&line=5eead4&point=fb7185&area=true&area_color=0d4f3c&border_color=1c2836&radius=4&hide_border=false"
+            alt="Abhinandan's GitHub Activity Graph"
+            class="github-chart-img"
+            onerror="this.parentElement.parentElement.innerHTML='<p style=\'text-align:center;color:var(--dim);font-family:JetBrains Mono,monospace;font-size:.85rem;padding:1rem;\'>Unable to load chart — <a href=\'https://github.com/A23894843\' target=\'_blank\' style=\'color:var(--signal)\'>view on GitHub ↗</a></p>'"
+          />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ LEETCODE SECTION ══════ -->
+  <section class="reveal" id="leetcode">
+    <h2><span class="mono">// leetcode_stats</span></h2>
+    <div class="card">
+      <div class="card-meta">
+        <span>abhinandan_lc · Problem Solving</span>
+        <span class="date" id="lc-last-updated">Fetching live…</span>
+      </div>
+
+      <!-- Loading state -->
+      <div class="lc-loading" id="lc-loading">Fetching LeetCode stats</div>
+
+      <!-- Error state -->
+      <div class="lc-error" id="lc-error">
+        Could not load live stats —
+        <a href="https://leetcode.com/u/abhinandan_lc/" target="_blank" rel="noopener" class="lc-link">view on LeetCode ↗</a>
+      </div>
+
+      <!-- Stats (hidden until loaded) -->
+      <div id="lc-content" style="display:none;">
+        <div class="lc-grid">
+          <div class="lc-stat total">
+            <div class="lc-num" id="lc-total">—</div>
+            <div class="lc-label">TOTAL SOLVED</div>
+          </div>
+          <div class="lc-stat easy">
+            <div class="lc-num" id="lc-easy">—</div>
+            <div class="lc-label">EASY</div>
+          </div>
+          <div class="lc-stat med">
+            <div class="lc-num" id="lc-med">—</div>
+            <div class="lc-label">MEDIUM</div>
+          </div>
+          <div class="lc-stat hard">
+            <div class="lc-num" id="lc-hard">—</div>
+            <div class="lc-label">HARD</div>
+          </div>
+        </div>
+
+        <!-- Progress bars -->
+        <div class="lc-bar-wrap">
+          <div class="lc-bar-row">
+            <span class="lc-bar-label easy">Easy</span>
+            <div class="lc-bar-track"><div class="lc-bar-fill easy" id="bar-easy" style="width:0%"></div></div>
+            <span class="lc-bar-count" id="cnt-easy">—</span>
+          </div>
+          <div class="lc-bar-row">
+            <span class="lc-bar-label med">Med</span>
+            <div class="lc-bar-track"><div class="lc-bar-fill med" id="bar-med" style="width:0%"></div></div>
+            <span class="lc-bar-count" id="cnt-med">—</span>
+          </div>
+          <div class="lc-bar-row">
+            <span class="lc-bar-label hard">Hard</span>
+            <div class="lc-bar-track"><div class="lc-bar-fill hard" id="bar-hard" style="width:0%"></div></div>
+            <span class="lc-bar-count" id="cnt-hard">—</span>
+          </div>
+        </div>
+
+        <div class="lc-footer">
+          <span class="lc-status"><span class="lc-dot"></span>Live data · updates on page load</span>
+          <a href="https://leetcode.com/u/abhinandan_lc/" target="_blank" rel="noopener" class="lc-link">View Profile ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACADEMICS -->
+  <section class="reveal" id="academics">
+    <h2><span class="mono">// academic_history</span></h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Education</h3><br>
+        <p style="color:var(--ink);font-weight:600;margin-bottom:.2rem;">Gurukul Kangri Vishwavidyalaya</p>
+        <p style="color:var(--dim);margin-bottom:1rem;font-size:.9rem;">B.Tech in Computer Science &amp; Engineering | 2023 – Present</p>
+        <ul><li>CGPA (Till now): 7.755</li></ul>
+        <br>
+        <p style="color:var(--ink);font-weight:600;margin-bottom:.2rem;">S.B.N. International School, Laksar</p>
+        <p style="color:var(--dim);margin-bottom:1rem;font-size:.9rem;">CBSE Board — Secondary &amp; Higher Secondary</p>
+        <ul>
+          <li>12th Grade (2022) — Score: 67%</li>
+          <li>10th Grade (2020) — Score: 70%</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Certifications</h3><br>
+        <ul>
+          <li><strong>Cybersecurity Fundamentals</strong> — IBM SkillsBuild, Intermediate level (<a class="cred-link" href="https://www.credly.com/badges/8325b11f-6533-4d11-b5d5-2c29dcbd181c/public_url" target="_blank" rel="noopener">verified via Credly</a>, ID: PWID-B0454800), 2026</li>
+          <li><strong>Python Internship</strong> — CodSoft</li>
+          <li><strong>AI &amp; ML Workshop</strong> — Sofcon India Pvt. Ltd.</li>
+          <li><strong>Group Discussion on Technology and Innovation</strong> — NDLI Club</li>
+          <li><strong>Intelligent BMS: Leveraging AI for Accuracy, Safety and Sustainability</strong> — Mathworks</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="flinks">
+    <a href="mailto:a23894843@gmail.com">a23894843@gmail.com</a>
+    <a href="tel:+919528998232">+91-95289-98232</a>
+    <a href="https://github.com/A23894843/" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/abhinandan-29b66b28b" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://leetcode.com/u/abhinandan_lc/" target="_blank" rel="noopener">LeetCode</a>
+  </div>
+  <p>📍 <a href="https://www.google.com/maps/search/?api=1&query=Alipur,+Ibrahimpur,+Bahadrabad,+Haridwar,+Uttarakhand" target="_blank" rel="noopener" class="location-link">Alipur, Ibrahimpur, Bahadrabad, Haridwar, U.K.</a></p>
+  <p class="copyright">© 2026 ABHINANDAN. All rights reserved.</p>
+</footer>
 
 <script>
-  // Light / dark theme toggle
-  (function(){
-    var root = document.documentElement;
-    var btn = document.getElementById('themeToggle');
-    var stored = null;
-    try{ stored = localStorage.getItem('theme'); }catch(e){}
-    var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-    var initial = stored || (prefersLight ? 'light' : 'dark');
-    if(initial === 'light'){ root.setAttribute('data-theme', 'light'); }
-    btn.addEventListener('click', function(){
-      var isLight = root.getAttribute('data-theme') === 'light';
-      if(isLight){
-        root.removeAttribute('data-theme');
-        try{ localStorage.setItem('theme', 'dark'); }catch(e){}
-      }else{
-        root.setAttribute('data-theme', 'light');
-        try{ localStorage.setItem('theme', 'light'); }catch(e){}
-      }
+/* ── Theme toggle ── */
+(function(){
+  var root = document.documentElement;
+  var btn  = document.getElementById('themeToggle');
+  var stored; try{ stored = localStorage.getItem('theme'); }catch(e){}
+  var prefersLight = window.matchMedia('(prefers-color-scheme:light)').matches;
+  var initial = stored || (prefersLight ? 'light' : 'dark');
+  if(initial === 'light') root.setAttribute('data-theme','light');
+  btn.addEventListener('click', function(){
+    var isLight = root.getAttribute('data-theme') === 'light';
+    if(isLight){ root.removeAttribute('data-theme'); try{ localStorage.setItem('theme','dark'); }catch(e){} }
+    else{ root.setAttribute('data-theme','light'); try{ localStorage.setItem('theme','light'); }catch(e){} }
+    setTimeout(function(){ readThemeColors(); },50);
+  });
+})();
+
+/* ── LeetCode live stats via unofficial stats API ── */
+(function(){
+  var username = 'abhinandan_lc'; // ← your LeetCode username
+
+  function show(easy, med, hard){
+    var total = easy + med + hard;
+    document.getElementById('lc-total').textContent = total;
+    document.getElementById('lc-easy').textContent  = easy;
+    document.getElementById('lc-med').textContent   = med;
+    document.getElementById('lc-hard').textContent  = hard;
+    document.getElementById('cnt-easy').textContent = easy;
+    document.getElementById('cnt-med').textContent  = med;
+    document.getElementById('cnt-hard').textContent = hard;
+
+    // Approximate totals for progress bars (LeetCode has ~3500 total)
+    var easyTotal = 850, medTotal = 1800, hardTotal = 800;
+    setTimeout(function(){
+      document.getElementById('bar-easy').style.width = Math.min(100, (easy/easyTotal)*100) + '%';
+      document.getElementById('bar-med').style.width  = Math.min(100, (med/medTotal)*100) + '%';
+      document.getElementById('bar-hard').style.width = Math.min(100, (hard/hardTotal)*100) + '%';
+    }, 100);
+
+    document.getElementById('lc-last-updated').textContent = 'Updated ' + new Date().toLocaleTimeString();
+    document.getElementById('lc-loading').style.display  = 'none';
+    document.getElementById('lc-content').style.display  = 'block';
+  }
+
+  function fail(){
+    document.getElementById('lc-loading').style.display = 'none';
+    document.getElementById('lc-error').style.display   = 'block';
+  }
+
+  // Primary: alfa-leetcode-api (CORS-friendly, no auth)
+  fetch('https://alfa-leetcode-api.onrender.com/' + username + '/solved')
+    .then(function(r){ return r.json(); })
+    .then(function(d){
+      if(!d || d.solvedProblem === undefined) throw new Error('bad data');
+      var easy = d.easySolved  || 0;
+      var med  = d.mediumSolved|| 0;
+      var hard = d.hardSolved  || 0;
+      show(easy, med, hard);
+    })
+    .catch(function(){
+      // Fallback: leetcode-stats-api
+      fetch('https://leetcode-stats-api.herokuapp.com/' + username)
+        .then(function(r){ return r.json(); })
+        .then(function(d){
+          if(!d || d.status === 'error') throw new Error('bad');
+          show(d.easySolved||0, d.mediumSolved||0, d.hardSolved||0);
+        })
+        .catch(fail);
     });
-  })();
+})();
 
-  // Ambient cybersecurity-themed background: falling binary/hex data stream,
-  // with a cursor-driven "scan" that flags nearby bytes like a live packet monitor.
-  (function(){
-    var canvas = document.getElementById('bg-canvas');
-    var ctx = canvas.getContext('2d');
-    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    var W, H, dpr;
-    var colWidth = 17;
-    var fontSize = 14;
-    var columns = [];
-    var mouse = { x:null, y:null, active:false };
-    var signalColor = '94,234,212';
-    var alertColor = '251,113,133';
-    var voidColor = '5,8,13';
-
-    var CHARSET = '01010101010101010101ABCDEF'.split('');
-    function randChar(){ return CHARSET[Math.floor(Math.random() * CHARSET.length)]; }
-
-    function hexToRgbStr(hex){
-      if(!hex) return null;
-      hex = hex.trim().replace('#','');
-      if(hex.length === 3){ hex = hex.split('').map(function(c){return c+c;}).join(''); }
-      if(hex.length !== 6) return null;
-      var r = parseInt(hex.substring(0,2),16);
-      var g = parseInt(hex.substring(2,4),16);
-      var b = parseInt(hex.substring(4,6),16);
-      return r+','+g+','+b;
+/* ── Matrix background canvas ── */
+(function(){
+  var canvas = document.getElementById('bg-canvas');
+  var ctx = canvas.getContext('2d');
+  var reduced = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var W, H, dpr, columns=[], mouse={x:null,y:null,active:false};
+  var signalColor='94,234,212', alertColor='251,113,133', voidColor='5,8,13';
+  var colWidth=17, fontSize=14;
+  var CHARSET='01010101010101010101ABCDEF'.split('');
+  function randChar(){ return CHARSET[Math.floor(Math.random()*CHARSET.length)]; }
+  function hexToRgbStr(hex){
+    if(!hex) return null;
+    hex=hex.trim().replace('#','');
+    if(hex.length===3) hex=hex.split('').map(function(c){return c+c;}).join('');
+    if(hex.length!==6) return null;
+    return parseInt(hex.substring(0,2),16)+','+parseInt(hex.substring(2,4),16)+','+parseInt(hex.substring(4,6),16);
+  }
+  function readThemeColors(){
+    var cs=getComputedStyle(document.documentElement);
+    signalColor=hexToRgbStr(cs.getPropertyValue('--signal'))||signalColor;
+    alertColor=hexToRgbStr(cs.getPropertyValue('--alert'))||alertColor;
+    voidColor=hexToRgbStr(cs.getPropertyValue('--void'))||voidColor;
+  }
+  function buildColumns(){
+    var count=Math.ceil(W/colWidth)+1; columns=[];
+    for(var i=0;i<count;i++) columns.push({x:i*colWidth,y:Math.random()*-H,speed:.35+Math.random()*.55,ch:randChar(),switchEvery:6+Math.floor(Math.random()*14),tick:0});
+  }
+  function resize(){
+    dpr=Math.min(window.devicePixelRatio||1,2); W=window.innerWidth; H=window.innerHeight;
+    canvas.width=W*dpr; canvas.height=H*dpr;
+    canvas.style.width=W+'px'; canvas.style.height=H+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    ctx.font=fontSize+'px "JetBrains Mono",monospace'; ctx.textBaseline='middle';
+    buildColumns();
+  }
+  function step(){
+    ctx.fillStyle='rgba('+voidColor+',0.16)'; ctx.fillRect(0,0,W,H);
+    var scanRadius=150;
+    for(var i=0;i<columns.length;i++){
+      var c=columns[i]; c.tick++;
+      if(c.tick>=c.switchEvery){ c.ch=randChar(); c.tick=0; }
+      var flagged=false;
+      if(mouse.active){ var dx=c.x-mouse.x,dy=c.y-mouse.y; if(Math.sqrt(dx*dx+dy*dy)<scanRadius) flagged=true; }
+      ctx.fillStyle=flagged?'rgba('+alertColor+',0.95)':'rgba('+signalColor+',0.65)';
+      ctx.fillText(c.ch,c.x,c.y);
+      c.y+=flagged?c.speed*2.2:c.speed;
+      if(c.y>H+20){ c.y=-20-Math.random()*200; c.speed=.35+Math.random()*.55; }
     }
-
-    function readThemeColors(){
-      var cs = getComputedStyle(document.documentElement);
-      signalColor = hexToRgbStr(cs.getPropertyValue('--signal')) || signalColor;
-      alertColor = hexToRgbStr(cs.getPropertyValue('--alert')) || alertColor;
-      voidColor = hexToRgbStr(cs.getPropertyValue('--void')) || voidColor;
+    if(mouse.active){
+      var grad=ctx.createRadialGradient(mouse.x,mouse.y,0,mouse.x,mouse.y,scanRadius);
+      grad.addColorStop(0,'rgba('+alertColor+',0.06)'); grad.addColorStop(1,'rgba('+alertColor+',0)');
+      ctx.fillStyle=grad; ctx.beginPath(); ctx.arc(mouse.x,mouse.y,scanRadius,0,Math.PI*2); ctx.fill();
     }
+  }
+  var rafId=null;
+  function loop(){ step(); rafId=requestAnimationFrame(loop); }
+  readThemeColors(); resize();
+  window.addEventListener('resize',function(){ resize(); if(reduced) step(); });
+  window.addEventListener('mousemove',function(e){ mouse.x=e.clientX; mouse.y=e.clientY; mouse.active=true; if(reduced) step(); });
+  window.addEventListener('mouseleave',function(){ mouse.active=false; if(reduced) step(); });
+  document.addEventListener('visibilitychange',function(){ if(document.hidden){ if(rafId) cancelAnimationFrame(rafId); rafId=null; }else if(!reduced&&!rafId) loop(); });
+  document.getElementById('themeToggle').addEventListener('click',function(){ setTimeout(function(){ readThemeColors(); if(reduced) step(); },50); });
+  if(reduced) step(); else loop();
+})();
 
-    function buildColumns(){
-      var count = Math.ceil(W / colWidth) + 1;
-      columns = [];
-      for(var i = 0; i < count; i++){
-        columns.push({
-          x: i * colWidth,
-          y: Math.random() * -H,
-          speed: 0.35 + Math.random() * 0.55,
-          ch: randChar(),
-          switchEvery: 6 + Math.floor(Math.random() * 14),
-          tick: 0
-        });
-      }
-    }
+/* ── Circuit parallax ── */
+(function(){
+  var bg=document.getElementById('bg-circuit');
+  if(!bg||window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  var tx=0,ty=0,cx=0,cy=0,raf=null,maxX=22,maxY=16;
+  function animate(){ cx+=(tx-cx)*.08; cy+=(ty-cy)*.08; bg.style.transform='translate3d('+cx.toFixed(2)+'px,'+cy.toFixed(2)+'px,0)'; raf=requestAnimationFrame(animate); }
+  window.addEventListener('mousemove',function(e){ tx=(e.clientX/window.innerWidth-.5)*maxX; ty=(e.clientY/window.innerHeight-.5)*maxY; if(!raf) animate(); });
+  window.addEventListener('mouseleave',function(){ tx=0;ty=0; if(!raf) animate(); });
+  animate();
+})();
 
-    function resize(){
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
-      W = window.innerWidth;
-      H = window.innerHeight;
-      canvas.width = W * dpr;
-      canvas.height = H * dpr;
-      canvas.style.width = W + 'px';
-      canvas.style.height = H + 'px';
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      ctx.font = fontSize + 'px "JetBrains Mono", monospace';
-      ctx.textBaseline = 'middle';
-      buildColumns();
-    }
+/* ── Radar parallax ── */
+(function(){
+  var radar=document.querySelector('.radar'), hero=document.querySelector('.hero');
+  if(!radar||!hero||window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  hero.addEventListener('mousemove',function(e){ var r=hero.getBoundingClientRect(); radar.style.transform='translate('+((e.clientX-r.left)/r.width-.5)*-18+'px,'+((e.clientY-r.top)/r.height-.5)*-14+'px)'; });
+  hero.addEventListener('mouseleave',function(){ radar.style.transform='translate(0,0)'; });
+})();
 
-    function step(){
-      // translucent wash creates the trailing fade of each falling byte
-      ctx.fillStyle = 'rgba(' + voidColor + ',0.16)';
-      ctx.fillRect(0, 0, W, H);
+/* ── Typing effect ── */
+(function(){
+  var el=document.getElementById('typedLine');
+  var text='cybersecurity & software engineering student';
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){ el.textContent=text; return; }
+  var i=0;
+  function type(){ if(i<=text.length){ el.innerHTML=text.slice(0,i)+'<span class="type-cursor"></span>'; i++; setTimeout(type,38); } }
+  type();
+})();
 
-      var scanRadius = 150;
-
-      for(var i = 0; i < columns.length; i++){
-        var c = columns[i];
-
-        c.tick++;
-        if(c.tick >= c.switchEvery){
-          c.ch = randChar();
-          c.tick = 0;
-        }
-
-        var flagged = false;
-        if(mouse.active){
-          var dx = c.x - mouse.x, dy = c.y - mouse.y;
-          if(Math.sqrt(dx*dx + dy*dy) < scanRadius) flagged = true;
-        }
-
-        ctx.fillStyle = flagged
-          ? 'rgba(' + alertColor + ',0.95)'
-          : 'rgba(' + signalColor + ',0.65)';
-        ctx.fillText(c.ch, c.x, c.y);
-
-        c.y += flagged ? c.speed * 2.2 : c.speed;
-        if(c.y > H + 20){
-          c.y = -20 - Math.random() * 200;
-          c.speed = 0.35 + Math.random() * 0.55;
-        }
-      }
-
-      // soft radial scan glow following the cursor, like a live probe
-      if(mouse.active){
-        var grad = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, scanRadius);
-        grad.addColorStop(0, 'rgba(' + alertColor + ',0.06)');
-        grad.addColorStop(1, 'rgba(' + alertColor + ',0)');
-        ctx.fillStyle = grad;
-        ctx.beginPath();
-        ctx.arc(mouse.x, mouse.y, scanRadius, 0, Math.PI * 2);
-        ctx.fill();
-      }
-    }
-
-    var rafId = null;
-    function loop(){ step(); rafId = requestAnimationFrame(loop); }
-    function drawStatic(){ step(); }
-
-    readThemeColors();
-    resize();
-    window.addEventListener('resize', function(){ resize(); if(reduced) drawStatic(); });
-
-    window.addEventListener('mousemove', function(e){
-      mouse.x = e.clientX; mouse.y = e.clientY; mouse.active = true;
-      if(reduced) drawStatic();
-    });
-    window.addEventListener('mouseleave', function(){ mouse.active = false; if(reduced) drawStatic(); });
-    window.addEventListener('touchmove', function(e){
-      if(e.touches && e.touches[0]){
-        mouse.x = e.touches[0].clientX; mouse.y = e.touches[0].clientY; mouse.active = true;
-        if(reduced) drawStatic();
-      }
-    }, { passive:true });
-
-    document.addEventListener('visibilitychange', function(){
-      if(document.hidden){
-        if(rafId) cancelAnimationFrame(rafId);
-        rafId = null;
-      }else if(!reduced && !rafId){
-        loop();
-      }
-    });
-
-    var toggleBtn = document.getElementById('themeToggle');
-    if(toggleBtn){
-      toggleBtn.addEventListener('click', function(){
-        setTimeout(function(){ readThemeColors(); if(reduced) drawStatic(); }, 50);
-      });
-    }
-
-    if(reduced){
-      drawStatic();
-    }else{
-      loop();
-    }
-  })();
-
-
-  // Circuit-board background parallax tied to cursor movement
-  (function(){
-    var bg = document.getElementById('bg-circuit');
-    if(!bg) return;
-    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if(reduced) return;
-
-    var targetX = 0, targetY = 0, currentX = 0, currentY = 0, raf = null;
-    var maxX = 22, maxY = 16;
-
-    function animate(){
-      currentX += (targetX - currentX) * 0.08;
-      currentY += (targetY - currentY) * 0.08;
-      bg.style.transform = 'translate3d(' + currentX.toFixed(2) + 'px,' + currentY.toFixed(2) + 'px,0)';
-      raf = requestAnimationFrame(animate);
-    }
-
-    window.addEventListener('mousemove', function(e){
-      var x = e.clientX / window.innerWidth - 0.5;
-      var y = e.clientY / window.innerHeight - 0.5;
-      targetX = x * maxX;
-      targetY = y * maxY;
-      if(!raf) animate();
-    });
-
-    window.addEventListener('mouseleave', function(){
-      targetX = 0; targetY = 0;
-      if(!raf) animate();
-    });
-
-    window.addEventListener('deviceorientation', function(e){
-      if(e.gamma == null || e.beta == null) return;
-      targetX = Math.max(-maxX, Math.min(maxX, e.gamma * 0.8));
-      targetY = Math.max(-maxY, Math.min(maxY, e.beta * 0.35));
-      if(!raf) animate();
-    }, { passive:true });
-
-    animate();
-  })();
-
-  // Subtle parallax tilt on hero radar, tied to cursor position
-  (function(){
-    var radar = document.querySelector('.radar');
-    var hero = document.querySelector('.hero');
-    if(!radar || !hero) return;
-    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if(reduced) return;
-    hero.addEventListener('mousemove', function(e){
-      var rect = hero.getBoundingClientRect();
-      var relX = (e.clientX - rect.left) / rect.width - 0.5;
-      var relY = (e.clientY - rect.top) / rect.height - 0.5;
-      radar.style.transform = 'translate(' + (relX * -18) + 'px,' + (relY * -14) + 'px)';
-    });
-    hero.addEventListener('mouseleave', function(){
-      radar.style.transform = 'translate(0,0)';
-    });
-  })();
-
-  // Terminal-style typing effect for hero subtitle
-  (function(){
-    var el = document.getElementById('typedLine');
-    var text = "cybersecurity & software engineering student";
-    var prefix = "$ status --whoami" + String.fromCharCode(10);
-    var i = 0;
-    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if(reduced){
-      el.textContent = text;
-      return;
-    }
-    function type(){
-      if(i <= text.length){
-        el.innerHTML = text.slice(0, i) + '<span class="type-cursor"></span>';
-        i++;
-        setTimeout(type, 38);
-      }
-    }
-    type();
-  })();
-
-  // Scroll-reveal for sections
-  (function(){
-    var items = document.querySelectorAll('.reveal');
-    if(!('IntersectionObserver' in window)){
-      items.forEach(function(el){ el.classList.add('visible'); });
-      return;
-    }
-    var obs = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if(entry.isIntersecting){
-          entry.target.classList.add('visible');
-          obs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    items.forEach(function(el){ obs.observe(el); });
-  })();
+/* ── Scroll reveal ── */
+(function(){
+  var items=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){ items.forEach(function(el){ el.classList.add('visible'); }); return; }
+  var obs=new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } }); },{ threshold:.12 });
+  items.forEach(function(el){ obs.observe(el); });
+})();
 </script>
-
-</body></html>
+</body>
+</html>
