@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=timeAuto&height=200&section=header&text=my-portfolio-abhinandan&fontSize=36&fontColor=ffffff&animation=twinkling&fontAlignY=38&desc=Cybersecurity%20%26%20Software%20Engineering%20Portfolio&descAlignY=58&descSize=16&descColor=ffffff" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=timeAuto&height=220&section=header&text=Abhinandan&fontSize=56&fontColor=ffffff&animation=twinkling&fontAlignY=38&desc=Cybersecurity%20%7C%20Python%20%7C%20C%2B%2B%20%7C%20Java&descAlignY=58&descSize=18&descColor=ffffff" width="100%"/>
 
 [![Live Site](https://img.shields.io/badge/🌐_Live_Site-my--portfolio--abhinandan.vercel.app-0D1117?style=for-the-badge)](https://my-portfolio-abhinandan.vercel.app)
 [![Deployed on Vercel](https://img.shields.io/badge/Deployed_on-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com)
