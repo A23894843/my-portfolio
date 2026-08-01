@@ -324,6 +324,27 @@
     *{ animation:none !important; transition:none !important; }
     .reveal{ opacity:1; transform:none; }
   }
+
+  /* ---------- GITHUB STAT PILLS ---------- */
+  .gh-stat-pill{
+    flex:1; min-width:160px;
+    background:var(--panel); border:1px solid var(--line);
+    border-radius:6px; padding:1.1rem 1.4rem;
+    display:flex; flex-direction:column; align-items:center;
+    text-align:center; gap:.2rem;
+    transition:border-color .3s ease, transform .3s ease;
+  }
+  .gh-stat-pill:hover{ border-color:var(--signal); transform:translateY(-3px); }
+  .gh-stat-pill.gh-streak{ border-color:rgba(251,113,133,.35); }
+  .gh-stat-pill.gh-streak:hover{ border-color:var(--alert); }
+  .gh-pill-icon{ font-size:1.4rem; line-height:1; }
+  .gh-pill-num{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:2rem; font-weight:700; color:var(--signal); line-height:1;
+  }
+  .gh-stat-pill.gh-streak .gh-pill-num{ color:var(--alert); }
+  .gh-pill-label{ font-family:'JetBrains Mono', monospace; font-size:.75rem; color:var(--dim); letter-spacing:.4px; }
+  .gh-pill-sub{ font-family:'JetBrains Mono', monospace; font-size:.7rem; color:var(--dim); opacity:.7; }
 </style>
 </head>
 <body>
@@ -362,8 +383,8 @@
   <div class="nav-links">
     <a href="mailto:a23894843@gmail.com">Email</a>
     <a href="tel:+919528998232">Phone</a>
-    <a href="https://github.com/A23894843/" target="_blank" rel="noopener">GitHub</a>
-    <a href="https://www.linkedin.com/in/abhinandan-29b66b28b" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/a23894843/" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/a23894843" target="_blank" rel="noopener">LinkedIn</a>
     <a href="https://drive.google.com/file/d/1F9vNLL18IpoJhXQqIfTwiu3u6dEPZfBH/view?usp=sharing" target="_blank" rel="noopener" class="nav-btn">Resume</a>
     <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark theme">
       <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
@@ -466,30 +487,50 @@
   <!-- GITHUB ACTIVITY -->
   <section class="reveal" id="github-activity">
     <h2><span class="mono">// github_activity</span></h2>
+
+    <!-- Live stat pills -->
+    <div style="display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:1.4rem;">
+      <div class="gh-stat-pill">
+        <span class="gh-pill-num" id="gh-total">—</span>
+        <span class="gh-pill-label">Total Contributions</span>
+        <span class="gh-pill-sub" id="gh-since">Since Jun 21, 2024</span>
+      </div>
+      <div class="gh-stat-pill gh-streak">
+        <span class="gh-pill-icon">🔥</span>
+        <span class="gh-pill-num" id="gh-streak">—</span>
+        <span class="gh-pill-label">Current Streak</span>
+        <span class="gh-pill-sub" id="gh-streak-dates">days</span>
+      </div>
+      <div class="gh-stat-pill">
+        <span class="gh-pill-num" id="gh-longest">—</span>
+        <span class="gh-pill-label">Longest Streak</span>
+        <span class="gh-pill-sub" id="gh-longest-dates">days</span>
+      </div>
+    </div>
+
+    <!-- Contribution bar chart + line overlay -->
     <div class="card">
       <div class="card-meta">
-        <span>A23894843 · Contribution Graph</span>
-        <span class="date">Live Data</span>
+        <span>a23894843 · Daily Contributions (Last 30 Days)</span>
+        <span class="date" id="gh-chart-status">Loading…</span>
       </div>
-      <!-- Streak embed — most reliable -->
-      <div style="display:flex;justify-content:center;margin-bottom:1.2rem;">
-        <img
-          src="https://streak-stats.demolab.com/?user=A23894843&theme=transparent&background=0D141F&border=1c2836&stroke=1c2836&ring=5eead4&fire=fb7185&currStreakNum=5eead4&sideNums=5eead4&currStreakLabel=5eead4&sideLabels=7d8a9c&dates=7d8a9c"
-          alt="GitHub Streak Stats"
-          style="max-width:100%;border-radius:6px;"
-          onerror="this.style.display='none'"
-        />
+      <div id="gh-chart-loading" style="text-align:center;padding:2.5rem 1rem;font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--dim);">
+        Fetching live data<span id="gh-dots">.</span>
       </div>
-      <!-- Contribution heatmap via activity-graph -->
-      <div class="github-chart-container">
-        <a href="https://github.com/A23894843" target="_blank" rel="noopener">
-          <img
-            src="https://github-readme-activity-graph.vercel.app/graph?username=A23894843&bg_color=0d141f&color=5eead4&line=5eead4&point=fb7185&area=true&area_color=0d4f3c&border_color=1c2836&radius=4&hide_border=false"
-            alt="Abhinandan's GitHub Activity Graph"
-            class="github-chart-img"
-            onerror="this.parentElement.parentElement.innerHTML='<p style=\'text-align:center;color:var(--dim);font-family:JetBrains Mono,monospace;font-size:.85rem;padding:1rem;\'>Unable to load chart — <a href=\'https://github.com/A23894843\' target=\'_blank\' style=\'color:var(--signal)\'>view on GitHub ↗</a></p>'"
-          />
-        </a>
+      <div id="gh-chart-wrap" style="display:none;position:relative;">
+        <canvas id="gh-chart" style="width:100%;border-radius:4px;" height="200"></canvas>
+        <div id="gh-tooltip" style="display:none;position:fixed;background:var(--panel);border:1px solid var(--signal);color:var(--ink);padding:.5rem .9rem;border-radius:5px;font-family:'JetBrains Mono',monospace;font-size:.75rem;pointer-events:none;z-index:9999;box-shadow:0 6px 24px rgba(0,0,0,.5);white-space:nowrap;"></div>
+      </div>
+      <div id="gh-chart-err" style="display:none;text-align:center;padding:2rem;font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--dim);">
+        Could not load live data —
+        <a href="https://github.com/a23894843" target="_blank" rel="noopener" style="color:var(--signal);">view on GitHub ↗</a>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;flex-wrap:wrap;gap:.5rem;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--dim);display:flex;align-items:center;gap:.5rem;">
+          <span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#4ade80;animation:pulse-dot 2s ease-in-out infinite;"></span>
+          Live · auto-updates on page load
+        </span>
+        <a href="https://github.com/a23894843" target="_blank" rel="noopener" style="font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--signal);text-decoration:none;border-bottom:1px solid rgba(94,234,212,.3);">View on GitHub ↗</a>
       </div>
     </div>
   </section>
@@ -596,8 +637,8 @@
   <div class="flinks">
     <a href="mailto:a23894843@gmail.com">a23894843@gmail.com</a>
     <a href="tel:+919528998232">+91-95289-98232</a>
-    <a href="https://github.com/A23894843/" target="_blank" rel="noopener">GitHub</a>
-    <a href="https://www.linkedin.com/in/abhinandan-29b66b28b" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/a23894843/" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/a23894843" target="_blank" rel="noopener">LinkedIn</a>
     <a href="https://leetcode.com/u/a23894843/" target="_blank" rel="noopener">LeetCode</a>
   </div>
   <p>📍 <a href="https://www.google.com/maps/search/?api=1&query=Alipur,+Ibrahimpur,+Bahadrabad,+Haridwar,+Uttarakhand" target="_blank" rel="noopener" class="location-link">Alipur, Ibrahimpur, Bahadrabad, Haridwar, U.K.</a></p>
@@ -621,58 +662,94 @@
   });
 })();
 
-/* ── LeetCode live stats via unofficial stats API ── */
+/* ── LeetCode live stats — 4-layer cascade, CORS-safe ── */
 (function(){
-  var username = 'a23894843'; // ← your LeetCode username
+  var username = 'a23894843';
+  var totalEl  = document.getElementById('lc-total');
+  var easyEl   = document.getElementById('lc-easy');
+  var medEl    = document.getElementById('lc-med');
+  var hardEl   = document.getElementById('lc-hard');
+  var cntEasy  = document.getElementById('cnt-easy');
+  var cntMed   = document.getElementById('cnt-med');
+  var cntHard  = document.getElementById('cnt-hard');
+  var barEasy  = document.getElementById('bar-easy');
+  var barMed   = document.getElementById('bar-med');
+  var barHard  = document.getElementById('bar-hard');
+  var tsEl     = document.getElementById('lc-last-updated');
+  var loadEl   = document.getElementById('lc-loading');
+  var errEl    = document.getElementById('lc-error');
+  var contEl   = document.getElementById('lc-content');
 
-  function show(easy, med, hard){
+  function render(easy, med, hard){
     var total = easy + med + hard;
-    document.getElementById('lc-total').textContent = total;
-    document.getElementById('lc-easy').textContent  = easy;
-    document.getElementById('lc-med').textContent   = med;
-    document.getElementById('lc-hard').textContent  = hard;
-    document.getElementById('cnt-easy').textContent = easy;
-    document.getElementById('cnt-med').textContent  = med;
-    document.getElementById('cnt-hard').textContent = hard;
-
-    // Approximate totals for progress bars (LeetCode has ~3500 total)
-    var easyTotal = 850, medTotal = 1800, hardTotal = 800;
+    totalEl.textContent = total;
+    easyEl.textContent  = easy;
+    medEl.textContent   = med;
+    hardEl.textContent  = hard;
+    cntEasy.textContent = easy;
+    cntMed.textContent  = med;
+    cntHard.textContent = hard;
     setTimeout(function(){
-      document.getElementById('bar-easy').style.width = Math.min(100, (easy/easyTotal)*100) + '%';
-      document.getElementById('bar-med').style.width  = Math.min(100, (med/medTotal)*100) + '%';
-      document.getElementById('bar-hard').style.width = Math.min(100, (hard/hardTotal)*100) + '%';
-    }, 100);
-
-    document.getElementById('lc-last-updated').textContent = 'Updated ' + new Date().toLocaleTimeString();
-    document.getElementById('lc-loading').style.display  = 'none';
-    document.getElementById('lc-content').style.display  = 'block';
+      barEasy.style.width = Math.min(100, (easy/900)*100).toFixed(1)+'%';
+      barMed.style.width  = Math.min(100, (med/1900)*100).toFixed(1)+'%';
+      barHard.style.width = Math.min(100, (hard/820)*100).toFixed(1)+'%';
+    }, 120);
+    tsEl.textContent   = 'Updated '+new Date().toLocaleTimeString();
+    loadEl.style.display  = 'none';
+    errEl.style.display   = 'none';
+    contEl.style.display  = 'block';
   }
 
   function fail(){
-    document.getElementById('lc-loading').style.display = 'none';
-    document.getElementById('lc-error').style.display   = 'block';
+    loadEl.style.display = 'none';
+    errEl.style.display  = 'block';
   }
 
-  // Primary: alfa-leetcode-api (CORS-friendly, no auth)
-  fetch('https://alfa-leetcode-api.onrender.com/' + username + '/solved')
-    .then(function(r){ return r.json(); })
-    .then(function(d){
-      if(!d || d.solvedProblem === undefined) throw new Error('bad data');
-      var easy = d.easySolved  || 0;
-      var med  = d.mediumSolved|| 0;
-      var hard = d.hardSolved  || 0;
-      show(easy, med, hard);
-    })
-    .catch(function(){
-      // Fallback: leetcode-stats-api
-      fetch('https://leetcode-stats-api.herokuapp.com/' + username)
-        .then(function(r){ return r.json(); })
-        .then(function(d){
-          if(!d || d.status === 'error') throw new Error('bad');
-          show(d.easySolved||0, d.mediumSolved||0, d.hardSolved||0);
-        })
-        .catch(fail);
-    });
+  function tryAPI(apis, idx){
+    if(idx >= apis.length){ fail(); return; }
+    var api = apis[idx];
+    var timeout = new Promise(function(_,rej){ setTimeout(function(){ rej(new Error('timeout')); }, 5000); });
+    Promise.race([fetch(api.url, {mode:'cors'}), timeout])
+      .then(function(r){ return r.ok ? r.json() : Promise.reject('status '+r.status); })
+      .then(function(d){
+        var e = api.easy(d), m = api.med(d), h = api.hard(d);
+        if(typeof e === 'number' && e >= 0) render(e, m, h);
+        else throw new Error('bad shape');
+      })
+      .catch(function(err){
+        console.warn('LC API '+(idx+1)+' failed:', err);
+        tryAPI(apis, idx+1);
+      });
+  }
+
+  var APIS = [
+    {
+      url: 'https://alfa-leetcode-api.onrender.com/'+username+'/solved',
+      easy:  function(d){ return d.easySolved   || 0; },
+      med:   function(d){ return d.mediumSolved  || 0; },
+      hard:  function(d){ return d.hardSolved    || 0; }
+    },
+    {
+      url: 'https://leetcode-stats-api.herokuapp.com/'+username,
+      easy:  function(d){ return d.easySolved   || 0; },
+      med:   function(d){ return d.mediumSolved  || 0; },
+      hard:  function(d){ return d.hardSolved    || 0; }
+    },
+    {
+      url: 'https://leetcode-api-faisalshohag.vercel.app/'+username,
+      easy:  function(d){ return d.easySolved   || 0; },
+      med:   function(d){ return d.mediumSolved  || 0; },
+      hard:  function(d){ return d.hardSolved    || 0; }
+    },
+    {
+      url: 'https://leet-roast.vercel.app/api/user/'+username,
+      easy:  function(d){ return (d.submitStats&&d.submitStats.acSubmissionNum&&d.submitStats.acSubmissionNum[1]&&d.submitStats.acSubmissionNum[1].count)||0; },
+      med:   function(d){ return (d.submitStats&&d.submitStats.acSubmissionNum&&d.submitStats.acSubmissionNum[2]&&d.submitStats.acSubmissionNum[2].count)||0; },
+      hard:  function(d){ return (d.submitStats&&d.submitStats.acSubmissionNum&&d.submitStats.acSubmissionNum[3]&&d.submitStats.acSubmissionNum[3].count)||0; }
+    }
+  ];
+
+  tryAPI(APIS, 0);
 })();
 
 /* ── Matrix background canvas ── */
@@ -770,6 +847,280 @@
   var obs=new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } }); },{ threshold:.12 });
   items.forEach(function(el){ obs.observe(el); });
 })();
+
+/* ── GitHub Activity — Live stats + bar/line chart, 3-API cascade ── */
+(function(){
+  var USER = 'a23894843';
+
+  /* DOM refs */
+  var elTotal    = document.getElementById('gh-total');
+  var elStreak   = document.getElementById('gh-streak');
+  var elSDates   = document.getElementById('gh-streak-dates');
+  var elLongest  = document.getElementById('gh-longest');
+  var elLDates   = document.getElementById('gh-longest-dates');
+  var elLoading  = document.getElementById('gh-chart-loading');
+  var elWrap     = document.getElementById('gh-chart-wrap');
+  var elErr      = document.getElementById('gh-chart-err');
+  var elStatus   = document.getElementById('gh-chart-status');
+  var elDots     = document.getElementById('gh-dots');
+  var canvas     = document.getElementById('gh-chart');
+  var tooltip    = document.getElementById('gh-tooltip');
+
+  /* Animate loading dots */
+  var di = 0;
+  var dotsTmr = setInterval(function(){ if(elDots) elDots.textContent = ['.','..','...'][di++%3]; }, 400);
+
+  function tFetch(url, ms){
+    ms = ms || 7000;
+    var controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    var timer = setTimeout(function(){ if(controller) controller.abort(); }, ms);
+    var opts = controller ? { signal: controller.signal } : {};
+    return fetch(url, opts).then(function(r){
+      clearTimeout(timer);
+      if(!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    }).catch(function(e){ clearTimeout(timer); throw e; });
+  }
+
+  /* ── 3 contribution APIs ── */
+  function api1(){ /* jogruber — returns { contributions:[{date,count}] } */
+    return tFetch('https://github-contributions-api.jogruber.de/v4/'+USER+'?y=last')
+      .then(function(d){
+        if(!d||!Array.isArray(d.contributions)||!d.contributions.length) throw new Error('empty');
+        return d.contributions; /* [{date:'YYYY-MM-DD', count:N}] */
+      });
+  }
+  function api2(){ /* Blogging Workbook proxy — same shape */
+    return tFetch('https://github-contributions-api.jogruber.de/v4/'+USER)
+      .then(function(d){
+        /* aggregate all years */
+        if(!d||!Array.isArray(d.contributions)||!d.contributions.length) throw new Error('empty');
+        return d.contributions;
+      });
+  }
+  function api3(){ /* ghcal.vercel.app */
+    return tFetch('https://ghcal.vercel.app/'+USER)
+      .then(function(d){
+        if(!Array.isArray(d)||!d.length) throw new Error('empty');
+        return d.map(function(c){ return { date: c.date||c.day||'', count: c.count||c.level||0 }; });
+      });
+  }
+
+  function cascade(fns, idx){
+    if(idx >= fns.length) return Promise.reject(new Error('all failed'));
+    return fns[idx]().catch(function(e){
+      console.warn('GH API '+(idx+1)+' failed:', e.message||e);
+      return cascade(fns, idx+1);
+    });
+  }
+
+  /* ── Compute streaks from flat contribution array ── */
+  function computeStreaks(days){
+    /* Sort ascending */
+    var sorted = days.slice().sort(function(a,b){ return a.date < b.date ? -1 : 1; });
+    var total = 0;
+    sorted.forEach(function(d){ total += d.count; });
+
+    var today     = new Date(); today.setHours(0,0,0,0);
+    var yesterday = new Date(today); yesterday.setDate(today.getDate()-1);
+
+    var cur=0, curStart='', lon=0, lonStart='', lonEnd='';
+    var tmp=0, tmpStart='';
+
+    for(var i=0; i<sorted.length; i++){
+      var d = sorted[i];
+      if(d.count > 0){
+        if(tmp === 0) tmpStart = d.date;
+        tmp++;
+        if(tmp > lon){ lon=tmp; lonStart=tmpStart; lonEnd=d.date; }
+      } else {
+        tmp=0; tmpStart='';
+      }
+    }
+
+    /* current streak — walk backwards from today */
+    var checkDate = new Date(today);
+    /* if today has 0 contributions, start from yesterday */
+    var todayStr = fmtDate(today);
+    var todayEntry = sorted.filter(function(d){ return d.date===todayStr; })[0];
+    if(!todayEntry || todayEntry.count===0) checkDate = yesterday;
+
+    for(var j=sorted.length-1; j>=0; j--){
+      var dd = sorted[j];
+      var cd = fmtDate(checkDate);
+      if(dd.date === cd){
+        if(dd.count > 0){
+          if(cur===0) curStart = dd.date;
+          cur++;
+          checkDate = new Date(checkDate);
+          checkDate.setDate(checkDate.getDate()-1);
+        } else break;
+      } else if(dd.date < cd) break;
+    }
+
+    return { total:total, cur:cur, curStart:curStart, lon:lon, lonStart:lonStart, lonEnd:lonEnd };
+  }
+
+  function fmtDate(d){
+    var dd = new Date(d);
+    return dd.getFullYear()+'-'+pad(dd.getMonth()+1)+'-'+pad(dd.getDate());
+  }
+  function pad(n){ return n<10?'0'+n:String(n); }
+  function shortDate(s){
+    if(!s) return '';
+    var d = new Date(s+'T00:00:00');
+    return d.toLocaleDateString('en-IN',{day:'numeric',month:'short'});
+  }
+
+  /* ── Draw bar + line chart ── */
+  function drawChart(days){
+    clearInterval(dotsTmr);
+    elLoading.style.display = 'none';
+    elWrap.style.display    = 'block';
+    elStatus.textContent    = 'Live · '+new Date().toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'});
+
+    /* Last 30 days */
+    var sorted = days.slice().sort(function(a,b){ return a.date<b.date?-1:1; });
+    var last30 = sorted.slice(-30);
+
+    var dpr  = Math.min(window.devicePixelRatio||1,2);
+    var W    = canvas.parentElement.clientWidth||700;
+    var H    = 200;
+    canvas.width  = W*dpr; canvas.height = H*dpr;
+    canvas.style.width = W+'px'; canvas.style.height = H+'px';
+
+    var ctx = canvas.getContext('2d');
+    ctx.scale(dpr,dpr);
+
+    var cs    = getComputedStyle(document.documentElement);
+    var SIG   = (cs.getPropertyValue('--signal')||'#5eead4').trim();
+    var ALT   = (cs.getPropertyValue('--alert')||'#fb7185').trim();
+    var LIN   = (cs.getPropertyValue('--line')||'#1c2836').trim();
+    var DIM   = (cs.getPropertyValue('--dim')||'#7d8a9c').trim();
+    var INK   = (cs.getPropertyValue('--ink')||'#e7edf5').trim();
+    var PAN   = (cs.getPropertyValue('--panel')||'#0d141f').trim();
+
+    var PAD   = { top:20, right:16, bottom:42, left:36 };
+    var cW    = W - PAD.left - PAD.right;
+    var cH    = H - PAD.top  - PAD.bottom;
+
+    var maxV  = Math.max.apply(null, last30.map(function(d){ return d.count; })) || 1;
+
+    /* Grid lines */
+    ctx.strokeStyle = LIN; ctx.lineWidth = 0.6;
+    [0,.25,.5,.75,1].forEach(function(t){
+      var y = PAD.top + cH - t*cH;
+      ctx.beginPath(); ctx.moveTo(PAD.left,y); ctx.lineTo(PAD.left+cW,y); ctx.stroke();
+      ctx.fillStyle=DIM; ctx.font='9px "JetBrains Mono",monospace'; ctx.textAlign='right';
+      ctx.fillText(Math.round(t*maxV), PAD.left-5, y+3);
+    });
+
+    var bW   = (cW/last30.length)*0.65;
+    var bGap = (cW - bW*last30.length)/(last30.length);
+    var barMeta = [];
+
+    /* Bars */
+    last30.forEach(function(d,i){
+      var x  = PAD.left + i*(bW+bGap) + bGap/2;
+      var h  = (d.count/maxV)*cH;
+      var y  = PAD.top + cH - h;
+      var t  = d.count/maxV;
+      /* gradient fill */
+      var grad = ctx.createLinearGradient(0,y,0,PAD.top+cH);
+      grad.addColorStop(0, SIG);
+      grad.addColorStop(1, 'rgba(94,234,212,0.08)');
+      ctx.globalAlpha = 0.18 + t*0.72;
+      ctx.fillStyle   = grad;
+      /* rounded top */
+      var r = Math.min(3, h/2);
+      ctx.beginPath();
+      ctx.moveTo(x+r,y); ctx.lineTo(x+bW-r,y);
+      ctx.quadraticCurveTo(x+bW,y,x+bW,y+r);
+      ctx.lineTo(x+bW,PAD.top+cH); ctx.lineTo(x,PAD.top+cH); ctx.lineTo(x,y+r);
+      ctx.quadraticCurveTo(x,y,x+r,y); ctx.closePath();
+      ctx.fill();
+      ctx.globalAlpha=1;
+      barMeta.push({ x:x, bW:bW, y:PAD.top, h:cH+PAD.top, count:d.count, date:d.date, cx:x+bW/2, cy:y===PAD.top+cH?y:y });
+    });
+
+    /* Line overlay */
+    ctx.beginPath();
+    last30.forEach(function(d,i){
+      var cx = PAD.left + i*(bW+bGap) + bGap/2 + bW/2;
+      var cy = PAD.top + cH - (d.count/maxV)*cH;
+      if(i===0) ctx.moveTo(cx,cy); else ctx.lineTo(cx,cy);
+    });
+    ctx.strokeStyle=SIG; ctx.lineWidth=2; ctx.lineJoin='round'; ctx.stroke();
+
+    /* Dots on line */
+    last30.forEach(function(d,i){
+      var cx = PAD.left + i*(bW+bGap) + bGap/2 + bW/2;
+      var cy = PAD.top + cH - (d.count/maxV)*cH;
+      ctx.beginPath(); ctx.arc(cx,cy,3,0,Math.PI*2);
+      ctx.fillStyle= d.count>0 ? ALT : LIN; ctx.fill();
+      barMeta[i].lx=cx; barMeta[i].ly=cy;
+    });
+
+    /* X-axis labels — every 5th day */
+    ctx.fillStyle=DIM; ctx.textAlign='center'; ctx.font='9px "JetBrains Mono",monospace';
+    last30.forEach(function(d,i){
+      if(i%5===0||i===last30.length-1){
+        var cx = PAD.left + i*(bW+bGap) + bGap/2 + bW/2;
+        var dt = new Date(d.date+'T00:00:00');
+        ctx.fillText(dt.toLocaleDateString('en-IN',{day:'numeric',month:'short'}), cx, H-PAD.bottom+16);
+      }
+    });
+
+    /* Axis labels */
+    ctx.save(); ctx.translate(10,PAD.top+cH/2); ctx.rotate(-Math.PI/2);
+    ctx.fillStyle=DIM; ctx.textAlign='center'; ctx.font='9px "JetBrains Mono",monospace';
+    ctx.fillText('Commits',0,0); ctx.restore();
+
+    /* Tooltip */
+    canvas.onmousemove = function(e){
+      var rect=canvas.getBoundingClientRect(), mx=e.clientX-rect.left, my=e.clientY-rect.top;
+      var hit=null;
+      barMeta.forEach(function(b){
+        if(mx>=b.x&&mx<=b.x+b.bW&&my>=PAD.top&&my<=PAD.top+cH) hit=b;
+      });
+      if(hit){
+        tooltip.style.display='block';
+        tooltip.style.left=(e.clientX+14)+'px';
+        tooltip.style.top=(e.clientY-36)+'px';
+        var dt=new Date(hit.date+'T00:00:00');
+        tooltip.textContent=hit.count+' commit'+(hit.count!==1?'s':'')+' · '+dt.toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'});
+      } else tooltip.style.display='none';
+    };
+    canvas.onmouseleave=function(){ tooltip.style.display='none'; };
+    canvas.ontouchmove=canvas.onmousemove;
+  }
+
+  /* ── Update stat pills from real data ── */
+  function updatePills(days, stats){
+    if(elTotal)   elTotal.textContent   = stats.total;
+    if(elStreak)  elStreak.textContent  = stats.cur;
+    if(elSDates && stats.curStart) elSDates.textContent = shortDate(stats.curStart)+' – Now';
+    if(elLongest) elLongest.textContent = stats.lon;
+    if(elLDates && stats.lonStart) elLDates.textContent = shortDate(stats.lonStart)+' – '+shortDate(stats.lonEnd);
+  }
+
+  /* ── Boot ── */
+  cascade([api1, api2, api3], 0)
+    .then(function(days){
+      var stats = computeStreaks(days);
+      updatePills(days, stats);
+      drawChart(days);
+    })
+    .catch(function(){
+      clearInterval(dotsTmr);
+      elLoading.style.display = 'none';
+      elErr.style.display     = 'block';
+      elStatus.textContent    = 'Unavailable';
+      /* Pills fallback — known last values */
+      if(elTotal)  elTotal.textContent  = '217+';
+      if(elStreak) elStreak.textContent = '18+';
+      if(elLongest)elLongest.textContent= '18';
+    });
+})();
+
 </script>
-</body>
-</html>
